@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Living Archive — Valarie Yang · 杨竹欣</title>
+<meta name="description" content="The Living Archive — a curated record of work by Valarie Yang: lecturer, product manager (FinTech · Web3 · AI/Data), and PhD applicant in Philosophy of Technology." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     THE LIVING ARCHIVE — Valarie Yang
+     Editorial Personal Archive · dark + warm amber
+     Motion: staggered reveal · blinking dots · grid rise · custom cursor
+     ============================================================ */
+
+  :root {
+    --bg-darkest: #0a0a0f;
+    --bg-dark: #100f17;
+    --bg-panel: #15141e;
+    --bg-card: #1a1924;
+    --bg-card-hi: #211f2c;
+    --amber: #e8b86d;
+    --amber-soft: #d4a574;
+    --amber-deep: #b8893f;
+    --amber-glow: rgba(232, 184, 109, 0.16);
+    --ink: #ece7db;
+    --ink-soft: #b3ac9c;
+    --ink-mute: #7a7468;
+    --ink-faint: #4a463f;
+    --rule: #2b2935;
+    --rule-soft: #211f2a;
+    --c-research: #8aa8a3;
+    --c-industry: #e8b86d;
+    --c-teaching: #d09270;
+    --c-building: #b3a974;
+    --c-writing: #9a90c4;
+    --c-education: #7a9cb8;
+    --serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", "SF Mono", "Courier New", monospace;
+    --maxw: 1240px;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-darkest);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    cursor: none;
+  }
+  @media (pointer: coarse) { body { cursor: auto; } }
+
+  /* Ambient blinking dots background */
+  .ambient-dots {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .ambient-dots::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 78% -8%, rgba(232, 184, 109, 0.08), transparent 60%),
+      radial-gradient(700px 500px at 8% 110%, rgba(154, 144, 196, 0.05), transparent 60%),
+      radial-gradient(1000px 700px at 50% 50%, rgba(20, 18, 28, 0.6), transparent 70%);
+  }
+  .dot {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--amber);
+    border-radius: 50%;
+    opacity: 0;
+    animation: blink 4s infinite ease-in-out;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Film grain overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 28px; height: 28px;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+  }
+  .cursor.hover-link { width: 44px; height: 44px; background: rgba(232,184,109,0.1); }
+  .cursor.hover-card { width: 60px; height: 60px; background: rgba(232,184,109,0.15); }
+  .cursor.hover-card::after { content: "OPEN"; }
+  @media (pointer: coarse) { .cursor { display: none; } }
+
+  ::selection { background: var(--amber); color: var(--bg-darkest); }
+  a { color: inherit; text-decoration: none; cursor: none; }
+  @media (pointer: coarse) { a { cursor: pointer; } }
+
+  .serif { font-family: var(--serif); }
+  .mono  { font-family: var(--mono); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+  }
+  .eyebrow.mute { color: var(--ink-mute); }
+
+  .shell { position: relative; z-index: 1; }
+
+  /* ---------------- Header ---------------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    background: rgba(10, 10, 15, 0.72);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .header-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 1.05rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    cursor: none;
+  }
+  @media (pointer: coarse) { .brand { cursor: pointer; } }
+  .brand .mark {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+  .brand .mark em { color: var(--amber); font-style: italic; font-weight: 400; }
+  .brand .vol {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  nav.site-nav { display: flex; align-items: center; gap: 1.6rem; }
+  nav.site-nav a {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s var(--ease);
+    cursor: none;
+  }
+  @media (pointer: coarse) { nav.site-nav a { cursor: pointer; } }
+  nav.site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -5px;
+    width: 0; height: 1px;
+    background: var(--amber);
+    transition: width 0.35s var(--ease);
+  }
+  nav.site-nav a:hover { color: var(--amber); }
+  nav.site-nav a:hover::after { width: 100%; }
+  nav.site-nav a.active { color: var(--amber); }
+  nav.site-nav a.active::after { width: 100%; }
+
+  /* ---------------- Views ---------------- */
+  main.views { position: relative; }
+  .view { display: none; }
+  .view.active {
+    display: block;
+    animation: viewIn 0.7s var(--ease) both;
+  }
+  @keyframes viewIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+  /* ============================================================
+     HOME VIEW
+     ============================================================ */
+  .home-hero {
+    padding: 7.5rem 0 5rem;
+    position: relative;
+  }
+  .home-hero .wrap { position: relative; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: end;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(3.2rem, 8.2vw, 6.8rem);
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .hero-title .ln { display: block; overflow: hidden; }
+  .hero-title .ln span {
+    display: inline-block;
+    animation: rise 0.8s var(--ease) both;
+  }
+  .hero-title .ln:nth-child(2) span { animation-delay: 0.15s; }
+  @keyframes rise {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+  .hero-tag {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .hero-tag .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 4px var(--amber-glow);
+    animation: pulse 2.6s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 4px var(--amber-glow); }
+    50% { box-shadow: 0 0 0 7px rgba(232,184,109,0.04); }
+  }
+  .hero-tag span { font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+
+  .hero-side {
+    border-left: 1px solid var(--rule);
+    padding-left: 2.2rem;
+    padding-bottom: 0.4rem;
+  }
+  .hero-side .name-block {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .hero-side .name-block .cn {
+    display: block;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.4em;
+    margin-top: 0.4rem;
+  }
+  .hero-side .role {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .hero-side .role strong { color: var(--amber-soft); font-weight: 500; }
+
+  .hero-lede {
+    margin-top: 3.2rem;
+    max-width: 60ch;
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .hero-lede::first-letter {
+    font-size: 2.4em;
+    float: left;
+    line-height: 0.8;
+    padding-right: 0.12em;
+    color: var(--amber);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .section { padding: 5.5rem 0; border-top: 1px solid var(--rule-soft); }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.8rem;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .section-head h2 em { color: var(--amber); font-style: italic; }
+  .section-head .note {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+
+  /* Stats */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat {
+    padding: 2rem 1.2rem;
+    border-right: 1px solid var(--rule-soft);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .stat .lab {
+    margin-top: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+
+  /* CTA */
+  .cta-row { margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.7rem;
+    border: 1px solid var(--amber-deep);
+    color: var(--amber);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    cursor: none;
+    background: transparent;
+    transition: all 0.4s var(--ease);
+    border-radius: 1px;
+  }
+  @media (pointer: coarse) { .btn { cursor: pointer; } }
+  .btn:hover { background: var(--amber); color: var(--bg-darkest); }
+  .btn.ghost { border-color: var(--rule); color: var(--ink-soft); }
+  .btn.ghost:hover { border-color: var(--amber); color: var(--amber); background: transparent; }
+  .btn .arr { transition: transform 0.35s var(--ease); }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  /* Index list */
+  .index-list { list-style: none; }
+  .index-row {
+    display: grid;
+    grid-template-columns: 70px 1fr auto 120px;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0.4rem;
+    border-bottom: 1px solid var(--rule-soft);
+    cursor: none;
+    transition: background 0.4s var(--ease), padding 0.4s var(--ease);
+    position: relative;
+  }
+  @media (pointer: coarse) { .index-row { cursor: pointer; } }
+  .index-row:hover { background: linear-gradient(90deg, rgba(232,184,109,0.05), transparent 70%); }
+  .index-row:hover .idx-arrow { transform: translateX(6px); color: var(--amber); }
+  .index-row:hover .idx-title { color: var(--amber); }
+  .idx-num {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.1em;
+  }
+  .idx-title {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.2;
+    transition: color 0.35s var(--ease);
+  }
+  .idx-title .sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    margin-top: 0.3rem;
+    font-weight: 300;
+  }
+  .idx-period {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    text-align: right;
+  }
+  .idx-arrow {
+    color: var(--ink-faint);
+    font-size: 1.3rem;
+    transition: transform 0.35s var(--ease), color 0.35s var(--ease);
+    text-align: right;
+  }
+
+  /* Threads */
+  .threads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+  .thread {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.6rem 1.5rem;
+    background: linear-gradient(180deg, var(--bg-panel), transparent);
+    transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+  .thread:hover { border-color: var(--amber-deep); transform: translateY(-3px); }
+  .thread .t-num {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.18em;
+  }
+  .thread h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin: 0.6rem 0 0.5rem;
+    line-height: 1.2;
+  }
+  .thread p { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.65; }
+
+  /* Research Questions */
+  .rq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1rem;
+  }
+  .rq-card {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.9rem 1.8rem;
+    background: linear-gradient(180deg, var(--bg-panel), transparent);
+    transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .rq-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--amber-deep);
+    opacity: 0.55;
+  }
+  .rq-card:hover { border-color: var(--amber-deep); transform: translateY(-3px); }
+  .rq-card .rq-num {
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.18em;
+  }
+  .rq-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0.55rem 0 0.8rem;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .rq-card .rq-keys {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+    line-height: 1.7;
+  }
+  .rq-card .rq-q {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    font-style: italic;
+    color: var(--amber-soft);
+    line-height: 1.55;
+  }
+
+  /* Now / Next */
+  .now-next-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .now-block, .next-block {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 2.2rem 2rem;
+    background: linear-gradient(180deg, var(--bg-panel), transparent);
+    position: relative;
+  }
+  .next-block { border-color: var(--rule-soft); background: linear-gradient(180deg, transparent, rgba(232,184,109,0.03)); }
+  .now-block::before, .next-block::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+  }
+  .now-block::before { background: var(--amber); }
+  .next-block::before { background: var(--ink-faint); }
+  .nn-label {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .now-block .nn-label { color: var(--amber); }
+  .next-block .nn-label { color: var(--ink-mute); }
+  .nn-year {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .next-block .nn-year { color: var(--ink-soft); }
+  .nn-row { margin-bottom: 1.1rem; }
+  .nn-row:last-child { margin-bottom: 0; }
+  .nn-row .k {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .nn-row .v { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.65; }
+  .nn-chain { display: flex; flex-direction: column; gap: 0.7rem; }
+  .nn-chain .step {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+  .nn-chain .step .arr { color: var(--ink-faint); font-family: var(--mono); font-size: 0.8rem; }
+  .nn-chain .step.last { color: var(--amber-soft); font-style: italic; }
+
+  /* ============================================================
+     TIMELINE
+     ============================================================ */
+  .timeline-band {
+    margin: 0 0 3rem;
+    padding: 2.4rem 0 2rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--bg-panel), rgba(10,10,15,0.4));
+    position: relative;
+    overflow-x: auto;
+  }
+  .timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-width: 640px;
+    padding: 0 2.5rem;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 2.5rem; right: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule) 6%, var(--rule) 94%, transparent);
+  }
+  .tl-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: none;
+    flex: 1;
+    z-index: 1;
+    text-align: center;
+  }
+  @media (pointer: coarse) { .tl-node { cursor: pointer; } }
+  .tl-dot {
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--bg-darkest);
+    border: 1px solid var(--ink-mute);
+    transition: all 0.4s var(--ease);
+    position: relative;
+  }
+  .tl-node:hover .tl-dot { border-color: var(--amber); }
+  .tl-node.active .tl-dot {
+    background: var(--amber);
+    border-color: var(--amber);
+    box-shadow: 0 0 0 5px var(--amber-glow);
+  }
+  .tl-node.current .tl-dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid var(--amber);
+    opacity: 0.5;
+    animation: ring 2.4s infinite;
+  }
+  @keyframes ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2.1); opacity: 0; }
+  }
+  .tl-year {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+  .tl-node.active .tl-year { color: var(--amber); }
+  .tl-label {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.2;
+    max-width: 130px;
+    transition: color 0.35s var(--ease);
+  }
+  .tl-node.active .tl-label { color: var(--ink); }
+  .tl-node:hover .tl-label { color: var(--amber); }
+  .tl-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ============================================================
+     STAGE VIEW
+     ============================================================ */
+  .stage-view { padding: 4rem 0 5rem; }
+  .stage-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 2.5rem;
+  }
+  .stage-num {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.22em;
+    margin-bottom: 0.9rem;
+  }
+  .stage-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .stage-title em { font-style: italic; color: var(--amber); font-weight: 400; }
+  .stage-period {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-align: right;
+    padding-bottom: 0.5rem;
+  }
+  .stage-period .now {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--amber-deep);
+    color: var(--amber);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+  }
+  .stage-body {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 3.5rem;
+    margin-top: 1rem;
+  }
+  .stage-narrative { font-size: 1.08rem; line-height: 1.85; color: var(--ink-soft); }
+  .stage-narrative p { margin-bottom: 1.3rem; }
+  .stage-narrative p:last-child { margin-bottom: 0; }
+  .stage-narrative strong { color: var(--ink); font-weight: 500; }
+  .stage-narrative em { color: var(--amber-soft); font-style: italic; }
+  .stage-aside { border-left: 1px solid var(--rule); padding-left: 2rem; }
+  .aside-block { margin-bottom: 2.2rem; }
+  .aside-block .lab {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+  .aside-block .val {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--amber);
+    line-height: 1.2;
+  }
+  .aside-block .val .small { font-size: 0.9rem; color: var(--ink-soft); }
+  .stage-cta { margin-top: 2.5rem; }
+
+  /* ============================================================
+     ARCHIVE / OUTCOMES
+     ============================================================ */
+  .outcomes-view { padding: 4rem 0 6rem; }
+  .outcomes-head { margin-bottom: 2.5rem; }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2rem;
+  }
+  .breadcrumb a { cursor: none; transition: color 0.3s var(--ease); }
+  @media (pointer: coarse) { .breadcrumb a { cursor: pointer; } }
+  .breadcrumb a:hover { color: var(--amber); }
+  .breadcrumb .sep { color: var(--ink-faint); }
+  .outcomes-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .outcomes-title em { font-style: italic; color: var(--amber); }
+  .outcomes-sub {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 60ch;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 2.2rem 0 2.8rem;
+    align-items: center;
+  }
+  .filters .flab {
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .chip {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    cursor: none;
+    border-radius: 1px;
+    transition: all 0.35s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  @media (pointer: coarse) { .chip { cursor: pointer; } }
+  .chip .swatch { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: 0.7; }
+  .chip:hover { border-color: var(--amber); color: var(--amber); }
+  .chip.active { background: var(--ink); color: var(--bg-darkest); border-color: var(--ink); }
+  .chip.active .swatch { opacity: 1; }
+  .chip[data-cat="research"] .swatch { background: var(--c-research); }
+  .chip[data-cat="industry"] .swatch { background: var(--c-industry); }
+  .chip[data-cat="teaching"] .swatch { background: var(--c-teaching); }
+  .chip[data-cat="building"] .swatch { background: var(--c-building); }
+  .chip[data-cat="writing"] .swatch { background: var(--c-writing); }
+  .chip[data-cat="education"] .swatch { background: var(--c-education); }
+  .filter-count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+  }
+
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.8rem 1.7rem 1.7rem;
+    background: var(--bg-card);
+    cursor: none;
+    transition: all 0.45s var(--ease);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+  }
+  @media (pointer: coarse) { .card { cursor: pointer; } }
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--cat-color, var(--amber));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s var(--ease);
+  }
+  .card:hover {
+    border-color: var(--bg-card-hi);
+    background: var(--bg-card-hi);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgba(0,0,0,0.7);
+  }
+  .card:hover::before { transform: scaleY(1); }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.1rem;
+  }
+  .card-arch {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.14em;
+  }
+  .card-cats { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+  .card-wip {
+    display: inline-block;
+    margin-left: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.54rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.5rem;
+    color: var(--bg-darkest);
+    background: var(--amber);
+    border-radius: 2px;
+    vertical-align: 1px;
+  }
+  .detail-wip {
+    display: inline-block;
+    margin-left: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    color: var(--bg-darkest);
+    background: var(--amber);
+    border-radius: 2px;
+  }
+  .cat-tag {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 1px;
+  }
+  .cat-tag.research { color: var(--c-research); }
+  .cat-tag.industry { color: var(--c-industry); }
+  .cat-tag.teaching { color: var(--c-teaching); }
+  .cat-tag.building { color: var(--c-building); }
+  .cat-tag.writing { color: var(--c-writing); }
+  .cat-tag.education { color: var(--c-education); }
+  .card-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.55rem;
+    line-height: 1.18;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    transition: color 0.35s var(--ease);
+  }
+  .card:hover .card-title { color: var(--amber); }
+  .card-desc { font-size: 0.86rem; line-height: 1.65; color: var(--ink-soft); flex: 1; }
+  .card-foot {
+    margin-top: 1.3rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-metric {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--cat-color, var(--amber));
+    font-weight: 500;
+  }
+  .card-metric .ml {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    color: var(--ink-mute);
+    margin-left: 0.35rem;
+    letter-spacing: 0.04em;
+    font-weight: 300;
+  }
+  .card-open {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.1em;
+    transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+  }
+  .card:hover .card-open { color: var(--amber); transform: translateX(4px); }
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--ink-mute);
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+
+  /* ============================================================
+     OUTCOME DETAIL
+     ============================================================ */
+  .detail-view { padding: 4rem 0 6rem; }
+  .detail-head { margin-bottom: 2rem; }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    cursor: none;
+    transition: color 0.3s var(--ease);
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  @media (pointer: coarse) { .back-btn { cursor: pointer; } }
+  .back-btn:hover { color: var(--amber); }
+  .back-btn .arr { transition: transform 0.3s var(--ease); }
+  .back-btn:hover .arr { transform: translateX(-4px); }
+  .detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 1.2rem;
+    flex-wrap: wrap;
+  }
+  .detail-arch {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.2em;
+  }
+  .detail-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    max-width: 18ch;
+  }
+  .detail-title em { font-style: italic; color: var(--amber); }
+  .detail-lead {
+    margin-top: 1.6rem;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+  .detail-body {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3.5rem;
+    margin-top: 3rem;
+  }
+  .detail-prose { font-size: 1.02rem; line-height: 1.85; color: var(--ink-soft); }
+  .detail-prose p { margin-bottom: 1.3rem; }
+  .detail-prose strong { color: var(--ink); font-weight: 500; }
+  .detail-prose em { color: var(--amber-soft); font-style: italic; }
+  .detail-prose .pull {
+    border-left: 2px solid var(--amber);
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    margin: 1.8rem 0;
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .detail-side { position: sticky; top: 6rem; align-self: start; }
+  .metrics-box {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--bg-panel), transparent);
+    padding: 1.8rem 1.7rem;
+  }
+  .metrics-box .mlab {
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed var(--rule-soft);
+    gap: 1rem;
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-row .k { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+  .metric-row .v {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--amber);
+    font-weight: 500;
+    text-align: right;
+  }
+  .metric-row .v .unit {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--ink-mute);
+    font-weight: 300;
+    margin-left: 0.25rem;
+  }
+  .detail-relate {
+    margin-top: 2rem;
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.7rem;
+    border-radius: 2px;
+  }
+  .detail-relate .rlab {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .detail-relate a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+    cursor: none;
+    transition: color 0.3s var(--ease);
+    border-top: 1px solid var(--rule-soft);
+  }
+  @media (pointer: coarse) { .detail-relate a { cursor: pointer; } }
+  .detail-relate a:first-of-type { border-top: none; }
+  .detail-relate a:hover { color: var(--amber); }
+
+  /* ============================================================
+     ABOUT VIEW
+     ============================================================ */
+  .about-view { padding: 4rem 0 6rem; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3.5rem;
+    margin-top: 1rem;
+  }
+  .about-portrait {
+    position: relative;
+    aspect-ratio: 4/5;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--bg-panel), var(--bg-card));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-portrait .portrait-placeholder {
+    font-family: var(--serif);
+    font-size: 5rem;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .about-portrait .portrait-meta {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .about-content h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 2rem 0 0.8rem;
+    line-height: 1.2;
+  }
+  .about-content h3:first-child { margin-top: 0; }
+  .about-content p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1rem; }
+  .about-content .trajectory {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.06em;
+    line-height: 2;
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--bg-panel);
+    margin: 1.5rem 0;
+  }
+  .about-content .trajectory .arrow { color: var(--ink-faint); margin: 0 0.4rem; }
+
+  /* ============================================================
+     CV VIEW
+     ============================================================ */
+  .cv-view { padding: 4rem 0 6rem; }
+  .cv-section { margin-bottom: 3.5rem; }
+  .cv-section-head {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    color: var(--amber-deep);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cv-milestones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .milestone {
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--rule-soft);
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--bg-panel), transparent);
+  }
+  .milestone .ms-period {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.4rem;
+  }
+  .milestone .ms-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .milestone .ms-sub {
+    font-size: 0.78rem;
+    color: var(--ink-mute);
+    margin-top: 0.3rem;
+  }
+  .cv-outputs-list { list-style: none; }
+  .cv-output {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.2rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .cv-output .co-num {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--amber-deep);
+    letter-spacing: 0.12em;
+  }
+  .cv-output .co-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .cv-output .co-title em { color: var(--amber-soft); font-style: italic; }
+  .cv-output .co-sub {
+    font-size: 0.76rem;
+    color: var(--ink-mute);
+    margin-top: 0.2rem;
+  }
+  .cv-output .co-type {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 1px;
+  }
+
+  /* ---------------- Footer ---------------- */
+  footer.site {
+    border-top: 1px solid var(--rule-soft);
+    padding: 3rem 0 2.5rem;
+    margin-top: 2rem;
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .foot-brand {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+  }
+  .foot-brand em { color: var(--amber); font-style: italic; }
+  .foot-meta {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  /* ---------------- Reveal animation ---------------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* Grid rise */
+  .grid-rise > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+  .grid-rise.in > * { opacity: 1; transform: none; }
+  .grid-rise.in > *:nth-child(1) { transition-delay: 0s; }
+  .grid-rise.in > *:nth-child(2) { transition-delay: 0.08s; }
+  .grid-rise.in > *:nth-child(3) { transition-delay: 0.16s; }
+  .grid-rise.in > *:nth-child(4) { transition-delay: 0.24s; }
+  .grid-rise.in > *:nth-child(5) { transition-delay: 0.32s; }
+  .grid-rise.in > *:nth-child(6) { transition-delay: 0.40s; }
+
+  /* ---------------- Responsive ---------------- */
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-side { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.6rem; }
+    .stage-body { grid-template-columns: 1fr; gap: 2.2rem; }
+    .stage-aside { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .detail-body { grid-template-columns: 1fr; gap: 2.2rem; }
+    .detail-side { position: static; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--rule-soft); }
+    .about-grid { grid-template-columns: 1fr; }
+    .cv-milestones { grid-template-columns: 1fr; }
+    .now-next-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .header-inner { padding: 0.9rem 1.2rem; }
+    nav.site-nav { gap: 0.9rem; }
+    nav.site-nav a { font-size: 0.68rem; }
+    .brand .vol { display: none; }
+    .wrap { padding: 0 1.2rem; }
+    .home-hero { padding: 4.5rem 0 3.5rem; }
+    .index-row { grid-template-columns: 44px 1fr 26px; gap: 1rem; }
+    .index-row .idx-period { display: none; }
+    .section { padding: 3.8rem 0; }
+    .stage-head { grid-template-columns: 1fr; }
+    .stage-period { text-align: left; }
+    .timeline { min-width: 560px; padding: 0 1.2rem; }
+    .timeline::before { left: 1.2rem; right: 1.2rem; }
+    .outcome-grid { grid-template-columns: 1fr; }
+    .stage-aside { grid-template-columns: 1fr; }
+    .cv-output { grid-template-columns: 44px 1fr; }
+    .cv-output .co-type { grid-column: 2; margin-top: 0.4rem; display: inline-block; width: fit-content; }
+  }
+  @media (max-width: 460px) {
+    nav.site-nav a:nth-child(n+4) { display: none; }
+    .hero-lede { font-size: 1.2rem; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg-darkest); }
+  ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--amber-deep); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal, .grid-rise > * { opacity: 1; transform: none; }
+    .dot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="ambient-dots" id="ambient-dots"></div>
+<div class="cursor" id="cursor"></div>
+
+<div class="shell">
+
+  <!-- ============ HEADER ============ -->
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand" onclick="go('home')">
+        <span class="mark">The Living <em>Archive</em></span>
+        <span class="vol">Vol. I · MMXXVI</span>
+      </div>
+      <nav class="site-nav" id="site-nav">
+        <a onclick="go('home')">Home</a>
+        <a onclick="go('career')">Career</a>
+        <a onclick="go('archive')">Archive</a>
+        <a onclick="go('about')">About</a>
+        <a onclick="go('cv')">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="views">
+
+    <!-- ============ HOME ============ -->
+    <section class="view active" id="view-home">
+      <div class="home-hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow reveal">Archive · Catalogued MMXXVI</div>
+              <h1 class="hero-title" style="margin-top:1.2rem;">
+                <span class="ln"><span>The Living</span></span>
+                <span class="ln"><span><em>Archive.</em></span></span>
+              </h1>
+              <div class="hero-tag reveal">
+                <span class="dot"></span>
+                <span>I build and study systems that shape how people make decisions.</span>
+              </div>
+            </div>
+            <div class="hero-side reveal">
+              <div class="name-block">
+                Valarie Yang
+                <span class="cn">杨 竹 欣</span>
+              </div>
+              <p class="role">
+                <strong>Lecturer &amp; Product Manager</strong> · FinTech · Web3 · AI/Data<br/>
+                Provincial Data Platforms · On-chain Trading · Regulatory Reporting<br/>
+                <em style="color:var(--amber-soft);">PhD Applicant</em> — Philosophy of Technology
+              </p>
+            </div>
+          </div>
+
+          <p class="hero-lede reveal">
+            A curated record of work held at the intersection of provincial data platforms, on-chain financial systems, and the philosophy of human–AI reliance. The vertical axis is narrative — career stages told as a story. The horizontal axis is time. Themes thread through both, connecting a regulatory fix in Hangzhou to a dashboard in Kunming, a classroom, and a chain.
+          </p>
+
+          <div class="cta-row reveal">
+            <button class="btn" onclick="go('career')">Enter the archive <span class="arr">→</span></button>
+            <button class="btn ghost" onclick="go('archive')">Browse outcomes</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>By the <em>numbers</em></h2>
+            <span class="note">Fig. 01 · Aggregate</span>
+          </div>
+          <div class="stats reveal">
+            <div class="stat"><div class="num">13</div><div class="lab">Catalogued Works</div></div>
+            <div class="stat"><div class="num">3</div><div class="lab">Provincial Platforms (2022)</div></div>
+            <div class="stat"><div class="num">7</div><div class="lab">Papers &amp; Monographs</div></div>
+            <div class="stat"><div class="num">99.7</div><div class="lab">Teaching Eval (top 5%)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Outcomes -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Selected <em>outcomes</em></h2>
+            <span class="note">Priority view · achievements first</span>
+          </div>
+          <div class="outcome-grid grid-rise" id="home-selected"></div>
+          <div class="cta-row reveal">
+            <button class="btn ghost" onclick="go('archive')">View all 13 entries <span class="arr">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Index of stages -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Index of <em>career stages</em></h2>
+            <span class="note">Filed in narrative order</span>
+          </div>
+          <ul class="index-list" id="home-index"></ul>
+        </div>
+      </div>
+
+      <!-- Threads -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Recurring <em>threads</em></h2>
+            <span class="note">Themes across time</span>
+          </div>
+          <div class="threads grid-rise">
+            <div class="thread">
+              <div class="t-num">№ 01</div>
+              <h3>Human–AI Reliance</h3>
+              <p>How trust in AI forms, how explanation mediates it, and how control must follow before governance can close the loop.</p>
+            </div>
+            <div class="thread">
+              <div class="t-num">№ 02</div>
+              <h3>Financial Systems</h3>
+              <p>From N-PORT regulatory reporting to on-chain settlement — making the movement of value legible, auditable, and trustworthy.</p>
+            </div>
+            <div class="thread">
+              <div class="t-num">№ 03</div>
+              <h3>Knowledge &amp; Pedagogy</h3>
+              <p>From 100+ supervised theses to AI grading systems — teaching as the design of systems that externalise judgement for non-technical decision-makers.</p>
+            </div>
+            <div class="thread">
+              <div class="t-num">№ 04</div>
+              <h3>Explanation &amp; Control</h3>
+              <p>The grammar that connects a philosopher's question to a product manager's edge case.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research Questions -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Research <em>questions</em></h2>
+            <span class="note">Four themes · one loop</span>
+          </div>
+          <p class="reveal" style="max-width:62ch;color:var(--ink-soft);font-family:var(--serif);font-style:italic;font-size:1.15rem;margin-bottom:2rem;">The doctoral programme traces a single recursive structure — reliance → explanation → control → governance — the same loop a product manager closes one edge case at a time.</p>
+          <div class="rq-grid grid-rise">
+            <div class="rq-card">
+              <div class="rq-num">№ 01</div>
+              <h3>Human–AI Decision Making</h3>
+              <div class="rq-keys">algorithmic advice · reliance · prediction error · calibrated trust · uncertainty</div>
+              <div class="rq-q">How do people update decisions when algorithmic advice conflicts with experience?</div>
+            </div>
+            <div class="rq-card">
+              <div class="rq-num">№ 02</div>
+              <h3>AI Governance</h3>
+              <div class="rq-keys">accountability · transparency · oversight · governance</div>
+              <div class="rq-q">What does meaningful human oversight require, once reliance has already formed?</div>
+            </div>
+            <div class="rq-card">
+              <div class="rq-num">№ 03</div>
+              <h3>Sociotechnical Systems</h3>
+              <div class="rq-keys">institutions · organizations · adoption · expertise · authority</div>
+              <div class="rq-q">How do technological systems and institutions co-produce judgement?</div>
+            </div>
+            <div class="rq-card">
+              <div class="rq-num">№ 04</div>
+              <h3>Philosophy of Technology</h3>
+              <div class="rq-keys">agency · mediation · responsibility · human judgment</div>
+              <div class="rq-q">How do technological systems mediate judgement and agency?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Now / Next -->
+      <div class="section">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Now <em>/ Next</em></h2>
+            <span class="note">Current focus</span>
+          </div>
+          <div class="now-next-grid">
+            <div class="now-block reveal">
+              <div class="nn-label">Now</div>
+              <div class="nn-year">2026</div>
+              <div class="nn-row">
+                <div class="k">Exploring</div>
+                <div class="v">Human–AI decision making, AI governance, computational social science.</div>
+              </div>
+              <div class="nn-row">
+                <div class="k">Teaching</div>
+                <div class="v">AI, big data, and data visualization at Dianchi College.</div>
+              </div>
+              <div class="nn-row">
+                <div class="k">Building</div>
+                <div class="v">AI assignment grading system · livestock vet teaching agent · TypeWords vocabulary app.</div>
+              </div>
+              <div class="nn-row">
+                <div class="k">Writing</div>
+                <div class="v">Two working manuscripts on green knowledge networks and digital technology risk.</div>
+              </div>
+            </div>
+            <div class="next-block reveal">
+              <div class="nn-label">Next</div>
+              <div class="nn-year">2027 →</div>
+              <div class="nn-chain">
+                <div class="step"><span>PhD research</span></div>
+                <div class="step"><span class="arr">↓</span><span>Publications</span></div>
+                <div class="step"><span class="arr">↓</span><span>Research collaborations</span></div>
+                <div class="step"><span class="arr">↓</span><span>Talks</span></div>
+                <div class="step"><span class="arr">↓</span><span>Products</span></div>
+                <div class="step last"><span class="arr">↓</span><span>Books / long-form writing</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAREER ============ -->
+    <section class="view" id="view-career">
+      <div class="wrap stage-view">
+        <div class="breadcrumb reveal">
+          <a onclick="go('home')">Archive</a>
+          <span class="sep">/</span>
+          <span>Career Stages</span>
+        </div>
+        <div class="timeline-band reveal" id="career-timeline"></div>
+        <div id="stage-content"></div>
+      </div>
+    </section>
+
+    <!-- ============ ARCHIVE ============ -->
+    <section class="view" id="view-archive">
+      <div class="wrap outcomes-view">
+        <div class="outcomes-head">
+          <div class="breadcrumb reveal">
+            <a onclick="go('home')">Archive</a>
+            <span class="sep">/</span>
+            <span>Outcomes</span>
+          </div>
+          <h1 class="outcomes-title reveal">The <em>outcomes</em> catalogue</h1>
+          <p class="outcomes-sub reveal">Thirteen catalogued works — ten shipped across industry, research, teaching, and building; three in active development. Filter by thread, or follow any entry to its full record.</p>
+        </div>
+        <div class="filters reveal" id="filter-bar">
+          <span class="flab">Filter</span>
+          <button class="chip active" data-cat="all">All</button>
+          <button class="chip" data-cat="research"><span class="swatch"></span>Research</button>
+          <button class="chip" data-cat="industry"><span class="swatch"></span>Industry</button>
+          <button class="chip" data-cat="teaching"><span class="swatch"></span>Teaching</button>
+          <button class="chip" data-cat="building"><span class="swatch"></span>Building</button>
+          <button class="chip" data-cat="writing"><span class="swatch"></span>Writing</button>
+          <button class="chip" data-cat="education"><span class="swatch"></span>Education</button>
+          <span class="filter-count" id="filter-count"></span>
+        </div>
+        <div class="outcome-grid" id="outcome-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="view" id="view-about">
+      <div class="wrap about-view">
+        <div class="breadcrumb reveal">
+          <a onclick="go('home')">Archive</a>
+          <span class="sep">/</span>
+          <span>About</span>
+        </div>
+        <div class="section-head reveal">
+          <h2>About <em>Valarie</em></h2>
+          <span class="note">Human identity</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-portrait reveal">
+            <span class="portrait-placeholder">V·Y</span>
+            <div class="portrait-meta">Portrait · 4:5 · IMG_9403 placeholder</div>
+          </div>
+          <div class="about-content reveal">
+            <h3>A practitioner-researcher</h3>
+            <p>Working at the intersection of AI, decision-making, technology, and institutions. The trajectory bends from a language and cross-cultural background into information systems, financial systems, government digital systems, AI/Data, teaching, and now research.</p>
+            <div class="trajectory">
+              Humanities <span class="arrow">→</span> Information Systems <span class="arrow">→</span> Financial Systems<br/>
+              <span class="arrow">→</span> Digital Government <span class="arrow">→</span> AI / Data <span class="arrow">→</span> Product<br/>
+              <span class="arrow">→</span> Human-AI Decision Making <span class="arrow">→</span> AI Governance / Philosophy of Technology
+            </div>
+            <h3>Practice</h3>
+            <p>From N-PORT regulatory reporting at State Street to three provincial big-data platforms under "Digital Yunnan," from on-chain trading systems at NX Lab to AI grading systems in development — practice has always been about making decision-grade data legible and trustworthy.</p>
+            <h3>Research</h3>
+            <p>The doctoral programme traces a single recursive structure: human–AI reliance → explanation → control → governance. Four themes organise the work: Human–AI Decision Making, AI Governance, Sociotechnical Systems, and Philosophy of Technology.</p>
+            <h3>Methods</h3>
+            <p>Computational social science meets philosophical analysis. Product management meets field research. The methods are hybrid because the questions sit between disciplines — between a philosopher's question and a product manager's edge case.</p>
+            <h3>Direction</h3>
+            <p>Applying to doctoral programs in Philosophy of Technology / Science &amp; Technology Studies (STS). The goal is not to leave practice behind, but to give it a longer arc — from closing one edge case at a time to understanding the grammar that connects them all.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section class="view" id="view-cv">
+      <div class="wrap cv-view">
+        <div class="breadcrumb reveal">
+          <a onclick="go('home')">Archive</a>
+          <span class="sep">/</span>
+          <span>CV</span>
+        </div>
+        <div class="section-head reveal">
+          <h2>Curriculum <em>vitae</em></h2>
+          <span class="note">Selected milestones &amp; outputs</span>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-head reveal">04 / Milestones · Education &amp; Positions</div>
+          <div class="cv-milestones grid-rise" id="cv-milestones"></div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-head reveal">05 / Selected Outputs · Papers · Monographs · Patent · Project</div>
+          <ul class="cv-outputs-list" id="cv-outputs"></ul>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-section-head reveal">Contact</div>
+          <div class="reveal" style="font-size:0.9rem;color:var(--ink-soft);line-height:1.9;">
+            <strong style="color:var(--ink);">Valarie Yang · 杨竹欣</strong><br/>
+            Lecturer, Dianchi College · PhD Applicant, Philosophy of Technology / STS<br/>
+            Kunming, China<br/>
+            <a href="mailto:valarieyoung2121@gmail.com" style="color:var(--amber-soft);">valarieyoung2121@gmail.com</a><br/>
+            <em style="color:var(--ink-mute);font-size:0.8rem;">FinTech · Web3 · AI/Data · Philosophy of Technology</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DETAIL ============ -->
+    <section class="view" id="view-detail">
+      <div class="wrap detail-view" id="detail-content"></div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site">
+    <div class="wrap foot-inner">
+      <div class="foot-brand">The Living <em>Archive</em> — Valarie Yang · 杨竹欣</div>
+      <div class="foot-meta">
+        Curated MMXXVI · Kunming, China<br/>
+        <a href="mailto:valarieyoung2121@gmail.com" style="color:var(--amber-soft);">valarieyoung2121@gmail.com</a> · FinTech · Web3 · AI/Data · Philosophy of Technology
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  /* ============================================================
+     DATA — The Living Archive
+     ============================================================ */
+  const STAGES = [
+    {
+      id: 'origin',
+      num: '01',
+      title: 'Origin & Finance',
+      titleEm: 'Finance',
+      lead: 'The origin chapter',
+      period: '2016 — 2019',
+      current: false,
+      year: '2016',
+      narrative: [
+        "Read for the <strong>Master of Business Information Systems</strong> at <strong>Monash University</strong> (Melbourne, 2016 – 2017; AQF Level 9; graduated Dec 2017; specialisation: Business Information Systems Studies); served as a <strong>Monash Open Day student ambassador</strong>, representing the faculty to prospective students and families. The degree paired foundation IT units (programming foundations, introduction to databases, systems analysis & design) with specialist units (business intelligence modelling, data science, BI & data warehousing, IT for management decisions, enterprise systems, applied data analysis) and a 12-credit-point <em>Industry Experience Studio Project</em> capstone. The formal turn from a language and cross-cultural background toward information systems, decision support, and the technology of judgement.",
+        "Beyond coursework: volunteered at the 2017 Melbourne Chinese New Year celebrations, receiving an appreciation letter from The Federation of Chinese Associations (VIC).",
+        "Joined <strong>Accenture</strong> (Melbourne) as a Business Analyst intern, supporting the 0-to-1 design of a Human Capital Management platform across four subsystems — attendance, payroll, performance, and employee evaluation — in a fully English-speaking cross-cultural team. The platform was reported to improve HR operational efficiency and reduce HR costs by approximately $100,000 annually.",
+        "Moved to <strong>State Street (Hangzhou)</strong> (2017.10 – 2019.12) as a Business Data Analyst, maintaining N-PORT / N-CEN monthly regulatory reporting for 100+ global financial institution clients (Deutsche Bank, UBS, Morgan Stanley, JPMorgan). Built a Python data validation, upload and auto-repair workflow that cut a 6-person × 3-day monthly task to a 1-day 2-person monitoring task — an ~89% direct labour reduction.",
+        "The same questions of evidence, traceability, and decision-grade data that would reappear in product management, in pedagogy, and in the PhD proposal were first met here, in regulatory data."
+      ],
+      aside: [
+        { lab: 'Education', val: 'MBIS', small: 'Monash · Open Day Ambassador' },
+        { lab: 'Focus', val: 'HCM · Regulatory reporting', small: 'FinTech' },
+        { lab: 'Clients', val: '100+', small: 'global FIs' },
+        { lab: 'Labour cut', val: '~89%', small: '18→2 person-days' }
+      ]
+    },
+    {
+      id: 'tengyun',
+      num: '02',
+      title: 'Provincial Data Platforms',
+      titleEm: 'Platforms',
+      lead: 'The platform chapter',
+      period: '2019.12 — 2021.08',
+      current: false,
+      year: '2019',
+      narrative: [
+        "Joined <strong>Yunnan Tengyun Information Industry</strong> (a Tencent subsidiary) in December 2019 as Business Analyst in Strategy Development, analysing industry, operating performance and key projects. Contributed to a cross-functional pandemic research brief covering macroeconomics, the tourism sector, app user growth and revenue forecasting — delivered directly to executive leadership.",
+        "In June 2020 transitioned to the Big Data Center as <strong>Product Manager</strong>, leading 0-to-1 delivery of the provincial big-data platform set under the 'Digital Yunnan' initiative for tourism and economic decision-makers. Five contracted platforms were all formally accepted in 2022: the <em>Tourism Economic Analysis Platform (Phase II)</em> (160 indicators, 40M+ records; indicator system co-built with Sun Yat-sen University's team), the <em>Big Data Visualization Platform</em> (10+ integrated data sources — consumer spending, OTA, POI, telecom, transport/aviation; benchmarked against Guizhou, Henan, Hangzhou), the <em>Big Data Aggregation Platform</em> (10→13 service interfaces, integrated with the Tourism Yunnan app), the <em>Digital Identity Service System</em> (real-name authentication + face-recognition check-in, docked with the MPS Third Research Institute), and the <em>Tourism AI Service System</em> (wake-word + scenic-spot robot capability, piloted in Shaxi).",
+        "Also owned the distributed <em>16-Prefecture Tourism Dashboard</em> (4 themes, 96 indicators across 16 prefecture teams) and the <em>Yunnan Cultural, Cultural-Relics & Tourism Statistical Direct-Reporting System</em> for the provincial culture and tourism department — six modules covering 8,000+ lodging units and 426 A-rated attractions, which went live before the 2021 Mid-Autumn Festival.",
+        "Left Tengyun in August 2021; the five contracted platforms were formally accepted in 2022. Earlier, also conducted foreign-tourist field interviews in Dali and Lijiang for the English version of <em>Tourism Yunnan (一部手机游云南)</em>, defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility.",
+        "The discipline of converting policy questions into data requirements — and back into decision interfaces for non-technical government users — was learned here."
+      ],
+      aside: [
+        { lab: 'Platforms shipped', val: '5', small: 'all accepted 2022' },
+        { lab: 'Data sources', val: '10+', small: 'integrated' },
+        { lab: 'Indicators', val: '160 · 96', small: 'Phase II · 16-Prefecture' },
+        { lab: 'Role', val: 'BA → PM', small: '2019.12 → 2021.08' }
+      ]
+    },
+    {
+      id: 'parallel',
+      num: '03',
+      title: 'Educator & Web3 PM',
+      titleEm: 'Web3',
+      lead: 'The teaching & on-chain chapter',
+      period: '2021 — 2026',
+      current: false,
+      year: '2021',
+      narrative: [
+        "A four-year parallel chapter — teaching by day, building on-chain products by night.",
+        "<strong>Lecturer at Yunnan Technology and Business College</strong> (2021.08 – 2026.01): co-developed AI programme curricula and course syllabi for the Accounting School and the School of Intelligent Science & Engineering. Taught Introduction to AI, Data Visualization, Data Preprocessing, Data Acquisition, Big Data Case Studies, Financial Big Data, Economics, Multinational Corporate Management, Automated Technical English, and IELTS Speaking / Listening / Reading. Course lead for <em>Financial Big Data Analysis & Application</em>, building the course's indicator system, assessment bank, and case library. Concurrently served in the <strong>Teaching Quality Monitoring Centre</strong> (2021.09 – 2022.08) — routine class inspections, exam proctoring and teaching-incident reporting, supervisory-team coordination, student-evaluation / teacher-evaluation data analytics, and early-warning monitoring via the Changke platform and BI dashboards; supported the school's undergraduate-evaluation evidence build. Awarded the <strong>Lecturer</strong> professional title (2022) and the university's <strong>Teaching Quality Award</strong> (优课优酬, 2023); co-edited the monograph 《高等教育管理与教学实践评价》 as <em>associate editor</em>. Four years as class advisor; supervised 100+ bachelor theses; achieved a <strong>99.7 student evaluation score</strong> (top 5% in the university for three consecutive years).",
+        "<strong>Product Manager at NX Lab</strong> (2024.03 – 2026.05), a small Web3 product team. Owned 0-to-1 product planning and delivery for three on-chain products: a <em>Bitcoin Inscription Asset Platform</em> (Ordinals / BRC-20 / Runes), a <em>DEX Platform</em> merging Uniswap-style AMM with Hyperliquid-style order book, and an <em>RWA Mini App</em> for a tokenized short-term treasury bond fund with an AI Data Copilot.",
+        "Both threads met in the same question: how to externalise judgement — of a student, of a trade, of a reconciliation — into a system a person can trust and contest."
+      ],
+      aside: [
+        { lab: 'Student eval', val: '99.7', small: 'top 5% · 3 years' },
+        { lab: 'Theses supervised', val: '100+', small: 'bachelor' },
+        { lab: 'On-chain products', val: '3', small: 'BTC · DEX · RWA' },
+        { lab: 'Span', val: '2021 — 2026', small: 'parallel' }
+      ]
+    },
+    {
+      id: 'current',
+      num: '04',
+      title: 'Dianchi & PhD Applicant',
+      titleEm: 'PhD Applicant',
+      lead: 'Current chapter',
+      period: '2026 — Present',
+      current: true,
+      year: '2026',
+      narrative: [
+        "<strong>Lecturer at Dianchi College</strong> (2026.03 – present), teaching AI, big data, and data visualization courses, and contributing to curriculum and syllabus design for the Accounting School and the School of Intelligent Science & Engineering.",
+        "Applying to doctoral programs in <em>Philosophy of Technology</em> / Science & Technology Studies (STS). The research direction traces a single recursive structure: <em>human–AI reliance → explanation → control → governance</em> — the same loop a product manager closes one edge case at a time. Four themes organise the programme:",
+        "<strong>Human–AI Decision Making</strong> — algorithmic advice, reliance, prediction error, calibrated trust, uncertainty. How do people update decisions when algorithmic advice conflicts with experience?",
+        "<strong>AI Governance</strong> — accountability, transparency, oversight, governance. What does meaningful human oversight require, once reliance has already formed?",
+        "<strong>Sociotechnical Systems</strong> — institutions, organizations, adoption, expertise, authority. How do technological systems and institutions co-produce judgement?",
+        "<strong>Philosophy of Technology</strong> — agency, mediation, responsibility, human judgment. How do technological systems mediate judgement and agency?",
+        "Academic outputs to date: <strong>2 published papers</strong> (incl. ICMAEA 2025), <strong>1 SSCI under review</strong> (Asian Business & Management, IF 2.2), <strong>2 working manuscripts</strong>, <strong>2 monographs</strong>, <strong>1 patent contribution</strong> (CN202111112415), and <strong>1 provincial research project</strong> (Yunnan 2021 Electronic Information & Next-Gen IT Special Project, chaired by Yunnan University)."
+      ],
+      aside: [
+        { lab: 'Role', val: 'Lecturer · PhD Applicant', small: 'Dianchi · STS' },
+        { lab: 'Research', val: '4 themes', small: 'Decision · Governance · STS · Phil. Tech.' },
+        { lab: 'Papers', val: '5', small: '2 pub · 1 SSCI · 2 WIP' },
+        { lab: 'Monographs', val: '2', small: '2018 · 2022' }
+      ]
+    }
+  ];
+
+  const OUTCOMES = [
+    {
+      id: 'ss-nport', arch: '№ 001', title: 'N-PORT Regulatory Workflow', titleSub: 'Python automation',
+      cats: ['industry'], stage: 'origin', selected: true,
+      lead: 'Python workflow cut a 6-person × 3-day monthly task to a 1-day 2-person monitoring task — ~89% direct labour reduction.',
+      desc: 'At State Street (Hangzhou), maintained N-PORT / N-CEN monthly regulatory reporting for 100+ global financial institution clients (Deutsche Bank, UBS, Morgan Stanley, JPMorgan). Used SQL to verify positions, market reference, and financial product data in the data warehouse; monitored data quality for Swap, Derivative, and Forward products; located and pushed exception fixes. Built a Python data-processing, validation, upload, and auto-repair workflow that reduced the monthly task from a 6-person × 3-day effort (≈18 person-days) to a 1-day 2-person monitoring task (≈2 person-days) — an ~89% direct labour reduction. Acted as the interface between operations, business users, and the IT team.',
+      pull: 'Regulatory data is the slowest form of finance — and the only one where a single field error becomes a compliance event.',
+      metrics: [
+        { k: 'Clients', v: '100+', unit: 'global FIs' },
+        { k: 'Labour cut', v: '~89%', unit: '18→2 person-days' },
+        { k: 'Reports', v: 'N-PORT · N-CEN', unit: 'monthly' },
+        { k: 'Stack', v: 'SQL · Python', unit: 'Squirrel' }
+      ]
+    },
+    {
+      id: 'accenture-hcm', arch: '№ 002', title: 'HCM Platform — Accenture Internship', titleSub: 'Melbourne · Monash period',
+      cats: ['industry'], stage: 'origin',
+      lead: 'Built and demoed a Human Capital Management (HCM) system as a Business Analyst Intern at Accenture, Melbourne.',
+      desc: 'Business Analyst Intern at Accenture (Melbourne) during the Monash period: worked on a Human Capital Management (HCM) system — requirement analysis and dashboard design, culminating in a demo. No project artefacts retained (commercial confidentiality, on-site only).',
+      pull: 'A system you can only demo on-site is still a system — the artefact boundary is where commerce meets memory.',
+      metrics: [
+        { k: 'Role', v: 'Business Analyst Intern', unit: 'Accenture · Melbourne' },
+        { k: 'Deliverable', v: 'HCM 系统 + 演示', unit: 'demo' },
+        { k: 'Artefacts', v: '无', unit: '商业保护' }
+      ]
+    },
+    {
+      id: 'monash-forever65', arch: '№ 002a', title: 'Forever 65 — Industry Experience Capstone', titleSub: 'WordPress · Google App Engine',
+      cats: ['building', 'education'], stage: 'origin',
+      lead: 'Team capstone for FIT5120 Industry Experience Studio (Monash, 2017 S2) — a community platform for the 65+ workforce.',
+      desc: '4-person team capstone: designed and shipped <em>Forever 65</em>, a WordPress + Google App Engine community platform for the 65+ demographic (Skills / Stories / Trends / Members / Admin), with a full handover package and an Industry Expo pitch.',
+      pull: 'A capstone is where a student stops being graded on knowledge and starts being judged on delivery.',
+      metrics: [
+        { k: 'Role', v: 'Team capstone', unit: '4-person · FIT5120' },
+        { k: 'Stack', v: 'WordPress + GAE', unit: 'cloud deploy' }
+      ]
+    },
+    {
+      id: 'monash-invisicare', arch: '№ 002b', title: 'InvisiCare — Grad Hackathon', titleSub: 'Portable healthcare concept',
+      cats: ['building'], stage: 'origin',
+      lead: 'Hackathon concept at the Monash Graduate Student Conference (2017) — portable healthcare convenience.',
+      desc: '<em>InvisiCare</em> — a portable, eco-friendly healthcare product/service concept; built the concept deck and benefits case against a Medicare / private-hospitals sector backdrop.',
+      pull: 'A hackathon idea is cheap; the discipline is finishing the deck against a real sector constraint.',
+      metrics: [
+        { k: 'Role', v: 'Concept + deck', unit: 'Grad Conf 2017' },
+        { k: 'Angle', v: '便携 · 环保', unit: 'healthcare' }
+      ]
+    },
+    {
+      id: 'monash-parking', arch: '№ 002c', title: 'Smart-City Parking Analytics', titleSub: 'Melbourne · Python',
+      cats: ['building', 'research'], stage: 'origin',
+      lead: '~1-month research stint on City of Melbourne parking data — selected into the Data Science Dean\'s research team.',
+      desc: 'Analysed on-street parking events in Python (Pandas), joined with weather and event calendars, profiling usage patterns and surfacing low-usage "magic" bays as re-allocation candidates.',
+      pull: 'Civic data is never clean — the model starts where the data stops cooperating.',
+      metrics: [
+        { k: 'Role', v: 'Research team', unit: '~1 month · Dean\'s team' },
+        { k: 'Stack', v: 'Python · Pandas', unit: 'civic data' }
+      ]
+    },
+    {
+      id: 'tengyun-econ', arch: '№ 003', title: 'Tourism Economic Analysis Platform', titleSub: 'Phase II',
+      cats: ['industry'], stage: 'tengyun', selected: true,
+      lead: 'Provincial big-data decision-support platform — 160 indicators, 40M+ records, accepted in 2022.',
+      desc: 'Led Phase II of the Yunnan Tourism Economic Analysis Platform under the "Digital Yunnan" initiative. Authored PRD sections, partial prototypes, the indicator dictionary and data requirements, and the user manual. Productized an expert model and reconciled indicator calibers across the five thematic panels: macro tourism economy, industry scale, market analysis, behavioural analysis, and 专题 analysis. The platform reached 160 indicators and 40M+ records at 阶段性 delivery, supporting provincial tourism economic decision-making.',
+      pull: 'A provincial platform is less a product than a treaty between policy and data — and the indicator dictionary is its fine print.',
+      metrics: [
+        { k: 'Indicators', v: '160', unit: 'catalogued' },
+        { k: 'Records', v: '40M+', unit: 'staged' },
+        { k: 'Panels', v: '5', unit: 'thematic' },
+        { k: 'Status', v: '2022', unit: 'accepted' }
+      ]
+    },
+    {
+      id: 'tengyun-bigdata', arch: '№ 004', title: 'Big Data Visualization Platform', titleSub: 'Provincial',
+      cats: ['industry'], stage: 'tengyun', selected: true,
+      lead: '10+ integrated data sources — provincial big-data visualization platform, accepted in 2022.',
+      desc: 'Owned the build of the Yunnan Big Data Visualization Platform — overall planning, requirement analysis, prototyping, indicator dictionary, data requirements, UAT, and acceptance. Integrated and processed consumer spending, OTA, POI, telecom, and transport (incl. aviation) data; designed the corresponding functional modules. Benchmarked Guizhou, Henan, and Hangzhou platforms; authored the build plan, prototypes, and the user & product manuals. Periodically collected feedback from provincial and prefecture tourism bureaus for ongoing maintenance.',
+      pull: 'Visualization is not simplification — it is the discipline of choosing which complexity a decision-maker can actually act on.',
+      metrics: [
+        { k: 'Data sources', v: '10+', unit: 'integrated' },
+        { k: 'Benchmark', v: '3', unit: 'provinces' },
+        { k: 'Status', v: '2022', unit: 'accepted' },
+        { k: 'Scope', v: 'End-to-end', unit: 'owned' }
+      ]
+    },
+    {
+      id: 'tengyun-16pref', arch: '№ 005', title: '16-Prefecture Tourism Dashboard', titleSub: 'Distributed',
+      cats: ['industry'], stage: 'tengyun',
+      lead: '4 themes, 96 indicators, 16 distributed prefecture teams — accepted in 2022.',
+      desc: 'Owned requirement analysis, partial prototypes, indicator dictionary, data requirements, and user manuals for the 16-Prefecture Tourism Digital Visualization Platform. Delivered four thematic layers (visitor flow, industry resources, industry operations, tourism economy) and 96 indicators across 16 prefectures. Balanced standardized platform features against localized customization requests, ran training and ongoing support.',
+      pull: 'Distributed delivery is the discipline of standardizing without flattening — and of letting each prefecture see itself in the data.',
+      metrics: [
+        { k: 'Themes', v: '4', unit: 'layers' },
+        { k: 'Indicators', v: '96', unit: 'catalogued' },
+        { k: 'Prefectures', v: '16', unit: 'distributed' },
+        { k: 'Status', v: '2022', unit: 'accepted' }
+      ]
+    },
+    {
+      id: 'tengyun-english', arch: '№ 006', title: 'Tourism Yunnan — English Research', titleSub: 'Field interviews',
+      cats: ['research', 'industry'], stage: 'tengyun',
+      lead: 'Foreign-tourist field interviews in Dali and Lijiang — four capability clusters defined.',
+      desc: 'Conducted field user research for the English version of "Tourism Yunnan" (一部手机游云南). Interviewed foreign tourists in English in Dali and Lijiang; produced a user analysis defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility. Findings fed into banner / festival push, attraction search with English descriptions, and visitor flow monitoring / forecasting requirements.',
+      pull: 'Field research is the slowest form of product design — and the only one that actually meets the user.',
+      metrics: [
+        { k: 'Sites', v: 'Dali · Lijiang', unit: 'field' },
+        { k: 'Interviews', v: 'English', unit: 'foreign tourists' },
+        { k: 'Clusters', v: '4', unit: 'capability' },
+        { k: 'Language', v: 'English', unit: 'working' }
+      ]
+    },
+    {
+      id: 'tengyun-aggregation', arch: '№ 007', title: 'Big Data Aggregation Platform', titleSub: 'Service interfaces · 一机游',
+      cats: ['industry'], stage: 'tengyun',
+      lead: 'Provincial tourism big-data aggregation service — 10→13 service interfaces, integrated with the Tourism Yunnan app; accepted in 2022.',
+      desc: 'Owned the provincial Tourism Big Data Aggregation Platform — a service-layer product aggregating tourism data assets and exposing them as standardised interfaces for downstream apps, including the "Tourism Yunnan" (一部手机游云南) super-app. Grew the service-interface catalogue from 10 to 13 endpoints; aligned data partitioning with administrative boundaries; coordinated the interface-form collaboration with Tencent (Tengyun built the applications; Tencent supplied visualisation / a simplified RayData capability). Resolved stability issues during interface and service upgrades through capability migration.',
+      pull: 'An aggregation platform is a treaty between many data owners — and the interface catalogue is its common vocabulary.',
+      metrics: [
+        { k: 'Interfaces', v: '10 → 13', unit: 'service' },
+        { k: 'Downstream', v: 'Tourism Yunnan', unit: 'app' },
+        { k: 'Partitions', v: '行政区划', unit: 'admin boundaries' },
+        { k: 'Status', v: '2022', unit: 'accepted' }
+      ]
+    },
+    {
+      id: 'tengyun-identity', arch: '№ 008', title: 'Digital Identity Service System', titleSub: 'Real-name · face check-in',
+      cats: ['industry'], stage: 'tengyun',
+      lead: 'Provincial tourism digital-identity service — real-name authentication + face-recognition check-in, docked with the MPS Third Research Institute; accepted in 2022.',
+      desc: 'Owned the Digital Identity Service System for provincial tourism — real-name authentication (实名认证) and face-recognition (刷脸) check-in capabilities. Docked with the Ministry of Public Security\'s Third Research Institute via Tencent Cloud 慧眼 identity verification; drew the boundary between face-recognition and QR-code check-in flows (distinct cost lines, non-overlapping functionality). Verified actual vs. real-name user counts via back-end data pulls; supported second-round verification for Tourism Yunnan users.',
+      pull: 'Identity is the quietest platform — until a check-in becomes a legal record.',
+      metrics: [
+        { k: 'Auth', v: '实名 + 刷脸', unit: 'real-name · face' },
+        { k: 'Docked', v: 'MPS 3rd Inst.', unit: 'public security' },
+        { k: 'Service', v: '5M+', unit: 'users scale' },
+        { k: 'Status', v: '2022', unit: 'accepted' }
+      ]
+    },
+    {
+      id: 'tengyun-stats', arch: '№ 009', title: 'Cultural & Tourism Statistical Direct-Reporting System', titleSub: 'Provincial · 6 modules',
+      cats: ['industry'], stage: 'tengyun',
+      lead: 'Provincial statistical direct-reporting system — 6 modules, 8,000+ lodging units, 426 A-rated attractions; live before the 2021 Mid-Autumn Festival.',
+      desc: 'Owned the Yunnan Provincial Cultural, Cultural-Relics & Tourism Statistical Direct-Reporting System (云南省文化文物和旅游统计直报系统) for the provincial culture and tourism department. Designed six modules — nameplate library (名录库), report centre (报表中心), holiday reporting, sample survey, aggregation, and analysis — covering 8,000+ lodging units, 426 A-rated attractions, 970+ star-rated hotels, 151 libraries, and 1,455 cultural venues/stations. Standardised the reporting calendar (monthly for star-rated hotels; annual→monthly cadence upgrades), built the province→prefecture→county→enterprise reporting hierarchy, and supported one-time reporting shared with the Ministry\'s system. Benchmark-collaborated with Hunan 12301; delivered PC-first; went live before the 2021 Mid-Autumn Festival (Sept 18).',
+      pull: 'A direct-reporting system is the data supply chain made literal — every report is a contract between an enterprise and a province.',
+      metrics: [
+        { k: 'Modules', v: '6', unit: 'nameplate · report · holiday · survey · agg · analysis' },
+        { k: 'Lodging units', v: '8,000+', unit: 'state-wide' },
+        { k: 'A-attractions', v: '426', unit: 'A-rated' },
+        { k: 'Live', v: '2021.09', unit: 'Mid-Autumn' }
+      ]
+    },
+    {
+      id: 'tengyun-ai', arch: '№ 010', title: 'Tourism AI Service System', titleSub: 'Wake words · scenic robots',
+      cats: ['industry'], stage: 'tengyun',
+      lead: 'Provincial tourism AI service system — wake-word and scenic-spot robot capabilities, piloted in Shaxi; accepted in 2022.',
+      desc: 'Owned the provincial Tourism AI Service System — wake-word (唤醒词) and scenic-spot robot capabilities for attractions. Piloted in Shaxi (沙溪), the only site then possessing the hardware baseline (robots); surfaced the contract ambiguity around the number of configured wake-words and the hardware dependency for full roll-out, and delivered second-round verification evidence.',
+      pull: 'A pilot is the honest version of a platform — it shows what the hardware, not the deck, will support.',
+      metrics: [
+        { k: 'Capability', v: '唤醒词 · 机器人', unit: 'wake-word · robot' },
+        { k: 'Pilot', v: '沙溪', unit: 'Shaxi' },
+        { k: 'Hardware', v: 'robot-ready', unit: 'baseline' },
+        { k: 'Status', v: '2022', unit: 'accepted' }
+      ]
+    },
+    {
+      id: 'nx-btc', arch: '№ 011', title: 'Bitcoin Inscription Asset Platform', titleSub: 'Ordinals · BRC-20 · Runes',
+      cats: ['industry'], stage: 'parallel', selected: true,
+      lead: 'Unified data model for Bitcoin native assets — Ordinals, BRC-20, and Runes (2024.03 – 2024.11).',
+      desc: 'Product design and architecture for a Bitcoin native-asset platform — covering identification, holdings, transaction tracking, and data analytics. Unified the asset models, lifecycles, and transaction rules for Ordinals, BRC-20, and Runes; built the data dictionary, event classification, and field calibers for Deploy / Mint / Transfer events. Designed data models for assets, addresses, Collections, Tokens, transactions, and market data. Risk-tagged copycat assets, suspicious addresses, anomalous transfers, anomalous prices, and high-frequency trading with monitoring rules and tiered alerts.',
+      pull: 'Bitcoin native assets are not one product — they are three lifecycles forced into one data model.',
+      metrics: [
+        { k: 'Asset types', v: '3', unit: 'Ordinals · BRC-20 · Runes' },
+        { k: 'Period', v: '2024.03 – 2024.11', unit: 'complete' },
+        { k: 'Risk tags', v: '5', unit: 'categories' },
+        { k: 'Domain', v: 'Bitcoin', unit: 'native' }
+      ]
+    },
+    {
+      id: 'nx-dex', arch: '№ 012', title: 'DEX Trading Platform', titleSub: 'AMM + Order book',
+      cats: ['industry'], stage: 'parallel',
+      lead: 'Unified AMM liquidity and order-book trading — full journey from quote to settlement (2025.01 – 2025.11).',
+      desc: 'Product design for a DEX platform merging Uniswap-style AMM liquidity with Hyperliquid-style order-book trading, providing a single entry point from market discovery to settlement. Decomposed the AMM vs. order-book mechanism differences; designed Approval, Gas, Slippage, Price Impact, and quote validity, plus order types, matching, partial fills, cancellation, and trade reports. Built trading preview and execution flows surfacing estimated received amount, fees, price impact, slippage, and margin / position changes. Established exception handling and retry for quote expiry, insufficient balance, and trade failure. Designed risk control and permission gating for high-risk contracts, Token Approvals, large trades, and leverage / margin prompts with secondary confirmation.',
+      pull: 'On-chain trading is legible only when the edge cases are designed, not hidden.',
+      metrics: [
+        { k: 'Mechanism', v: 'AMM + Order book', unit: 'unified' },
+        { k: 'Period', v: '2025.01 – 2025.11', unit: 'complete' },
+        { k: 'Journey', v: 'Quote → Settlement', unit: 'full' },
+        { k: 'Risk', v: 'Tiered', unit: 'gating' }
+      ]
+    },
+    {
+      id: 'nx-rwa', arch: '№ 013', title: 'RWA Mini App', titleSub: 'Tokenized treasury fund',
+      cats: ['industry'], stage: 'parallel',
+      lead: 'Tokenized short-term treasury bond fund — holdings, NAV, reconciliation, and AI Data Copilot (2026.01 – 2026.05).',
+      desc: 'Product planning for an RWA Mini App targeting tokenized short-term treasury bond funds. Scoped to 1 RWA asset, 1 EVM chain, and public data. Built Asset, Investor, Position, NAV, Transaction, and Reconciliation data models; designed on-chain holdings vs. back-office accounting matching, difference flagging, manual confirmation, and report version management. Designed the AI Data Copilot supporting natural-language queries on holdings / NAV, generating report summaries, explaining reconciliation differences, and showing cited data sources and calculation calibers.',
+      pull: 'RWA reconciliation is the practice of keeping a promise made in two places at once — and proving it.',
+      metrics: [
+        { k: 'Scope', v: '1 asset · 1 EVM chain', unit: 'scoped' },
+        { k: 'Models', v: '6', unit: 'Asset · Investor · Position · NAV · Tx · Recon' },
+        { k: 'AI', v: 'Data Copilot', unit: 'NL query' },
+        { k: 'Period', v: '2026.01 – 2026.05', unit: 'complete' }
+      ]
+    },
+    {
+      id: 'academic-outputs', arch: '№ 014', title: 'Academic Outputs', titleSub: 'Papers · Monographs · Patent',
+      cats: ['research', 'writing'], stage: 'current', selected: true,
+      lead: '5 papers (2 published · 1 SSCI under review · 2 WIP), 2 monographs, 1 patent contribution, 1 provincial research project.',
+      desc: 'Published: "Identification of the non-technological indicators on companies\' innovation ability" (Modern Economics & Management Forum, 5(3), 2024) and "Student engagement analysis in video streams based on a hybrid CNN-LSTM architecture" (ICMAEA 2025, Chongqing). Under review (SSCI Q3, IF 2.2): "A heterodetic assessment of the mediation effect of media effect on management cognition and green innovation on Chinese listed firms" (Asian Business & Management). Working manuscripts: "Targeted Cluster Policy and the Rewiring of Green Knowledge Networks" (2027 est.) and "Disclosed Digital Technology Risk and Persistent Green Innovation: Evidence from Chinese Listed Firms" (2027 est.). Co-authored monographs: 《高等教育管理与教学实践评价》(Jilin Education Press, 2022, ISBN 978-7-5734-0655-2) and 《大数据时代下信息化教学的实践与应用》(Beijing University of Technology Press, 2018, ISBN 978-7-5639-6316-4). Contributed to product design of patent CN202111112415 "Interface development method, device, computer equipment and storage medium" (Yunnan Tengyun, 2021; inventors 李振楠 · 汤映东). Implementation member of the 2021 Yunnan Provincial Electronic Information & Next-Gen IT Special Project "Research and application of key technologies of industry resource sharing and business collaboration for smart tourism" (chaired by Yunnan University; Topic 2 product & model optimization).',
+      pull: 'The same loop a product manager closes one edge case at a time — reliance, explanation, control, governance — returns, at a different altitude, as a research programme.',
+      metrics: [
+        { k: 'Papers', v: '5', unit: '2 pub · 1 SSCI · 2 WIP' },
+        { k: 'Monographs', v: '2', unit: '2018 · 2022' },
+        { k: 'Patent', v: 'CN202111112415', unit: 'product design' },
+        { k: 'Project', v: 'Yunnan 2021', unit: 'special project' }
+      ]
+    },
+    {
+      id: 'wip-grading', arch: '№ WIP-01', title: 'AI Assignment Grading System', titleSub: 'Dynamic rubric generation',
+      cats: ['building', 'teaching'], stage: 'current', wip: true,
+      lead: 'In development — a grading system exploring AI-generated rubrics that adapt to each submission.',
+      desc: 'Currently in development. The hypothesis: rather than applying a static rubric across submissions, the system generates a rubric calibrated to each piece of work — turning grading into a conversation between the work and its assessment. Stack and integration are being scoped.',
+      pull: 'A rubric that moves with the work, instead of the work bending to the rubric.',
+      metrics: [
+        { k: 'Status', v: 'In development', unit: 'scoping' },
+        { k: 'Goal', v: 'Dynamic', unit: 'rubrics' },
+        { k: 'Domain', v: 'Pedagogy', unit: 'AI' },
+        { k: 'Stack', v: 'TBD', unit: 'scoping' }
+      ]
+    },
+    {
+      id: 'wip-vet', arch: '№ WIP-02', title: 'Livestock Vet Teaching Agent', titleSub: 'Domain-specific pedagogy',
+      cats: ['teaching'], stage: 'current', wip: true,
+      lead: 'In development — a teaching agent for the narrow, high-stakes domain of livestock veterinary medicine.',
+      desc: 'Currently in development. A teaching agent scoped for the narrow, high-stakes domain of livestock veterinary medicine. The design question: in a field where wrong answers carry weight, how is authority and accountability surfaced in the agent itself — through signed templates, source citations, or refusal? Knowledge base and adapters are being scoped.',
+      pull: 'In veterinary medicine, a signed answer is not a formality — it is a boundary on harm.',
+      metrics: [
+        { k: 'Status', v: 'In development', unit: 'scoping' },
+        { k: 'Domain', v: 'Livestock', unit: 'veterinary' },
+        { k: 'Goal', v: 'Signed', unit: 'authority' },
+        { k: 'Adapter', v: 'TBD', unit: 'scoping' }
+      ]
+    },
+    {
+      id: 'wip-typewords', arch: '№ WIP-03', title: 'TypeWords', titleSub: 'Vocabulary learning app',
+      cats: ['building'], stage: 'current', wip: true,
+      lead: 'In development — a vocabulary app scoped for CET-4/6, IELTS, TOEFL, GRE, and 高考英语.',
+      desc: 'Currently in development. A focused vocabulary learning application being scoped around five standardised examination word books. The design intent: sustained, low-friction retention — the kind of practice that turns a word list into a habit, and a habit into fluency.',
+      pull: 'Five exams, one habit: the smallest unit of mastery, repeated until it compounds.',
+      metrics: [
+        { k: 'Status', v: 'In development', unit: 'scoping' },
+        { k: 'Word books', v: '5', unit: 'planned' },
+        { k: 'Exams', v: 'CET · IELTS', unit: 'TOEFL · GRE · 高考' },
+        { k: 'Goal', v: 'Retention', unit: 'low-friction' }
+      ]
+    }
+  ];
+
+  const CV_MILESTONES = [
+    { period: '2016 — 2017', title: 'Master of Business Information Systems', sub: 'Monash University, Melbourne · Open Day Student Ambassador' },
+    { period: '2017', title: 'Business Analyst Intern', sub: 'Accenture, Melbourne' },
+    { period: '2017.10 — 2019.12', title: 'Business Data Analyst', sub: 'State Street, Hangzhou' },
+    { period: '2019.12 — 2021.08', title: 'BA → Product Manager', sub: 'Yunnan Tengyun Information Industry' },
+    { period: '2021.08 — 2026.01', title: 'Lecturer', sub: 'Yunnan Technology and Business College' },
+    { period: '2024.03 — 2026.05', title: 'Product Manager (Web3)', sub: 'NX Lab' },
+    { period: '2026.03 — present', title: 'Lecturer', sub: 'Dianchi College' },
+    { period: '2026 — present', title: 'PhD Applicant', sub: 'Philosophy of Technology / STS' }
+  ];
+
+  const CV_OUTPUTS = [
+    { num: '01', title: 'Identification of the non-technological indicators on companies\' innovation ability', sub: 'Modern Economics & Management Forum, 5(3), 2024', type: 'Published' },
+    { num: '02', title: 'Student engagement analysis in video streams based on a hybrid CNN-LSTM architecture', sub: 'ICMAEA 2025, Chongqing', type: 'Published' },
+    { num: '03', title: 'A heterodetic assessment of the mediation effect of media effect on management cognition and green innovation', sub: 'Asian Business & Management (SSCI Q3, IF 2.2) — under review', type: 'Under Review' },
+    { num: '04', title: 'Targeted Cluster Policy and the Rewiring of Green Knowledge Networks', sub: 'Working manuscript, 2027 est.', type: 'WIP' },
+    { num: '05', title: 'Disclosed Digital Technology Risk and Persistent Green Innovation', sub: 'Working manuscript, 2027 est.', type: 'WIP' },
+    { num: '06', title: '《高等教育管理与教学实践评价》', sub: 'Jilin Education Press, 2022 · ISBN 978-7-5734-0655-2', type: 'Monograph' },
+    { num: '07', title: '《大数据时代下信息化教学的实践与应用》', sub: 'Beijing University of Technology Press, 2018 · ISBN 978-7-5639-6316-4', type: 'Monograph' },
+    { num: '08', title: 'CN202111112415 — Interface development method, device, computer equipment and storage medium', sub: 'Yunnan Tengyun, 2021 · product design contribution', type: 'Patent' },
+    { num: '09', title: 'Research and application of key technologies of industry resource sharing and business collaboration for smart tourism', sub: 'Yunnan 2021 Provincial Special Project · chaired by Yunnan University · Topic 2', type: 'Project' },
+    { num: '10', title: '中级工程师 (Engineer · intermediate-level)', sub: '计算机技术与软件专业技术资格(水平)考试 (软考) · 人力资源和社会保障部 + 工业和信息化部 联合用印', type: 'Certificate' },
+    { num: '11', title: '高级工程师 (Senior Engineer · advanced-level)', sub: '计算机技术与软件专业技术资格(水平)考试 (软考) · 人力资源和社会保障部 + 工业和信息化部 联合用印', type: 'Certificate' },
+    { num: '12', title: '讲师 (Lecturer · 高校教师中级职称)', sub: '2022 · 云南工商学院专业技术职务评审 · 云南省高校教师职称系列', type: 'Certificate' },
+    { num: '13', title: '高等学校教师资格 (笔试合格)', sub: '2021 · 云南省教师资格认定课程考试合格证书', type: 'Certificate' },
+    { num: '14', title: '云南省高等职业院校专业综合评价专家库人选', sub: '2024.06 · 云南省高职专业综合评价专家库', type: 'Service' },
+    { num: '15', title: '论文评审专家', sub: '学术论文同行评审 · 学术服务', type: 'Service' },
+    { num: '16', title: '优课优酬大赛 — 教学质量奖', sub: '2023.03 · 云南工商学院', type: 'Award' },
+    { num: '17', title: '第 19 届外研社杯全国中学生外语素养大赛 — 优秀评委', sub: '2023.03 · 外研社', type: 'Award' },
+    { num: '18', title: '精彩课堂 (新教师组) 决赛三等奖', sub: '2022.06 · 会计学院', type: 'Award' },
+    { num: '19', title: 'Monash Open Day Student Ambassador', sub: '2016 · Monash University · faculty representative to prospective students', type: 'Service' },
+    { num: '20', title: '2017 墨尔本中国新年庆祝活动 — 志愿服务感谢函', sub: '2017.01 · 澳大利亚维州华人社团联合会 (FCA VIC)', type: 'Service' },
+    { num: '21', title: 'RMIT 2016 Data Analytics Competition — 参赛证书', sub: '2016 · RMIT School of Business IT & Logistics', type: 'Certificate' },
+    { num: '22', title: 'Monash Peer Mentor Program', sub: '2017 · Faculty of IT · 签发人 Professor Susan Elliott (DVC & VP Education)', type: 'Service' },
+    { num: '23', title: 'CPR First Aid Statement of Attainment', sub: 'HLTAID003/004 · CPR First Aid (RTO 21903) · Melbourne', type: 'Certificate' },
+    { num: '24', title: 'Working with Children Check (WWCC)', sub: '2017 · Department of Justice and Regulation · Employee', type: 'Certificate' },
+    { num: '25', title: 'MSJ MEDIA 新闻发布会 — 志愿者', sub: '2017.09.03 · Director Wendy Ji', type: 'Service' }
+  ];
+
+  const CAT_LABELS = {
+    research: 'Research', industry: 'Industry', teaching: 'Teaching',
+    building: 'Building', writing: 'Writing', education: 'Education'
+  };
+  const CAT_COLORS = {
+    research: 'var(--c-research)', industry: 'var(--c-industry)', teaching: 'var(--c-teaching)',
+    building: 'var(--c-building)', writing: 'var(--c-writing)', education: 'var(--c-education)'
+  };
+
+  /* ============================================================
+     VIEW ROUTER
+     ============================================================ */
+  let currentFilter = 'all';
+  let currentStage = null;
+  let currentDetail = null;
+
+  function go(view, param) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('#site-nav a').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById('view-' + view);
+    if (target) target.classList.add('active');
+    const navMap = { home: 0, career: 1, archive: 2, about: 3, cv: 4 };
+    const navLinks = document.querySelectorAll('#site-nav a');
+    if (navMap[view] !== undefined && navLinks[navMap[view]]) navLinks[navMap[view]].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
+    if (view === 'career') {
+      renderTimeline('career-timeline', currentStage || 'origin');
+      if (!currentStage) currentStage = 'origin';
+      renderStage(currentStage);
+    } else if (view === 'archive') {
+      renderOutcomes();
+    } else if (view === 'cv') {
+      renderCV();
+    } else if (view === 'detail' && param) {
+      currentDetail = param;
+      renderDetail(param);
+    }
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  /* ============================================================
+     RENDER: Home selected outcomes
+     ============================================================ */
+  (function renderHomeSelected() {
+    const el = document.getElementById('home-selected');
+    if (!el) return;
+    const selected = OUTCOMES.filter(o => o.selected);
+    el.innerHTML = selected.map(o => cardHTML(o)).join('');
+  })();
+
+  /* ============================================================
+     RENDER: Home index
+     ============================================================ */
+  (function renderHomeIndex() {
+    const ul = document.getElementById('home-index');
+    if (!ul) return;
+    ul.innerHTML = STAGES.map(s => `
+      <li class="index-row reveal" onclick="go('career'); selectStage('${s.id}')">
+        <span class="idx-num">${s.num}</span>
+        <span class="idx-title">${s.title.replace(s.titleEm, '<em>'+s.titleEm+'</em>')}<span class="sub">${s.lead}</span></span>
+        <span class="idx-period">${s.period}${s.current ? ' <span style="color:var(--amber)">●</span>' : ''}</span>
+        <span class="idx-arrow">→</span>
+      </li>
+    `).join('');
+  })();
+
+  /* ============================================================
+     RENDER: Timeline
+     ============================================================ */
+  function renderTimeline(targetId, activeId) {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    const order = ['origin', 'tengyun', 'parallel', 'current'];
+    el.innerHTML = `
+      <div class="timeline">
+        ${order.map(id => {
+          const s = STAGES.find(x => x.id === id);
+          return `
+            <div class="tl-node ${id === activeId ? 'active' : ''} ${s.current ? 'current' : ''}" onclick="selectStage('${s.id}')">
+              <span class="tl-dot"></span>
+              <span class="tl-year">${s.year}</span>
+              <span class="tl-label">${s.titleEm}</span>
+              <span class="tl-tag">Stage ${s.num}</span>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  /* ============================================================
+     RENDER: Stage
+     ============================================================ */
+  function selectStage(id) {
+    currentStage = id;
+    renderTimeline('career-timeline', id);
+    renderStage(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  function renderStage(id) {
+    const s = STAGES.find(x => x.id === id);
+    if (!s) return;
+    const stageOutcomes = OUTCOMES.filter(o => o.stage === id);
+    const wrap = document.getElementById('stage-content');
+    wrap.innerHTML = `
+      <div class="stage-head reveal">
+        <div>
+          <div class="stage-num">Stage ${s.num} · ${s.lead}</div>
+          <h1 class="stage-title">${s.title.replace(s.titleEm, '<em>'+s.titleEm+'</em>')}</h1>
+        </div>
+        <div class="stage-period">
+          ${s.period}
+          ${s.current ? '<br/><span class="now">PRESENT</span>' : ''}
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="stage-narrative reveal">
+          ${s.narrative.map(p => `<p>${p}</p>`).join('')}
+          <div class="stage-cta">
+            <button class="btn" onclick="go('archive')">View outcomes from this stage <span class="arr">→</span></button>
+          </div>
+        </div>
+        <aside class="stage-aside reveal">
+          ${s.aside.map(a => `
+            <div class="aside-block">
+              <div class="lab">${a.lab}</div>
+              <div class="val">${a.val} <span class="small">${a.small || ''}</span></div>
+            </div>
+          `).join('')}
+        </aside>
+      </div>
+      ${stageOutcomes.length ? `
+        <div style="margin-top:4rem;">
+          <div class="section-head reveal" style="margin-bottom:1.6rem;">
+            <h2>Outcomes <em>filed here</em></h2>
+            <span class="note">${stageOutcomes.length} entries</span>
+          </div>
+          <div class="outcome-grid">
+            ${stageOutcomes.map(o => cardHTML(o)).join('')}
+          </div>
+        </div>
+      ` : ''}
+    `;
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  /* ============================================================
+     RENDER: Outcomes list + filters
+     ============================================================ */
+  function renderOutcomes() {
+    renderFilters();
+    applyFilter(currentFilter);
+  }
+
+  function renderFilters() {
+    document.querySelectorAll('#filter-bar .chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.cat === currentFilter);
+      chip.onclick = () => {
+        currentFilter = chip.dataset.cat;
+        document.querySelectorAll('#filter-bar .chip').forEach(c => c.classList.toggle('active', c === chip));
+        applyFilter(currentFilter);
+      };
+    });
+  }
+
+  function applyFilter(cat) {
+    const grid = document.getElementById('outcome-grid');
+    const count = document.getElementById('filter-count');
+    let list = OUTCOMES;
+    if (cat !== 'all') list = OUTCOMES.filter(o => o.cats.includes(cat));
+    if (!list.length) {
+      grid.innerHTML = `<div class="empty-state">No outcomes filed under "${CAT_LABELS[cat]||cat}" — yet.</div>`;
+    } else {
+      grid.innerHTML = list.map(o => cardHTML(o)).join('');
+    }
+    count.textContent = `${list.length} of ${OUTCOMES.length} entries`;
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  function cardHTML(o) {
+    const primary = o.cats[0];
+    return `
+      <article class="card" style="--cat-color:${CAT_COLORS[primary]};" onclick="go('detail','${o.id}')">
+        <div class="card-top">
+          <span class="card-arch">${o.arch}${o.wip ? '<span class="card-wip">In Development</span>' : ''}</span>
+          <div class="card-cats">${o.cats.map(c => `<span class="cat-tag ${c}">${CAT_LABELS[c]}</span>`).join('')}</div>
+        </div>
+        <h3 class="card-title">${o.title}</h3>
+        <p class="card-desc">${o.lead}</p>
+        <div class="card-foot">
+          <span class="card-metric">${o.metrics[0].v}<span class="ml">${o.metrics[0].k.toLowerCase()}</span></span>
+          <span class="card-open">Open →</span>
+        </div>
+      </article>
+    `;
+  }
+
+  /* ============================================================
+     RENDER: Detail
+     ============================================================ */
+  function renderDetail(id) {
+    const o = OUTCOMES.find(x => x.id === id);
+    if (!o) return;
+    const s = STAGES.find(x => x.id === o.stage);
+    const primary = o.cats[0];
+    const related = OUTCOMES.filter(x => x.id !== id && x.cats.some(c => o.cats.includes(c))).slice(0, 4);
+
+    document.getElementById('detail-content').innerHTML = `
+      <div class="detail-head">
+        <button class="back-btn reveal" onclick="go('archive')"><span class="arr">←</span> Back to outcomes</button>
+        <div class="detail-meta reveal">
+          <span class="detail-arch">${o.arch}</span>${o.wip ? '<span class="detail-wip">In Development</span>' : ''}
+          ${o.cats.map(c => `<span class="cat-tag ${c}">${CAT_LABELS[c]}</span>`).join('')}
+        </div>
+        <h1 class="detail-title reveal">${o.title.replace(o.titleSub, '<em>'+o.titleSub+'</em>')}</h1>
+        <p class="detail-lead reveal">${o.lead}</p>
+      </div>
+      <div class="detail-body">
+        <div class="detail-prose reveal">
+          <p>${o.desc}</p>
+          <div class="pull">${o.pull}</div>
+          <p>This entry is filed under <strong>${o.cats.map(c => CAT_LABELS[c]).join(' &amp; ')}</strong>, within the stage <em>${s.titleEm}</em> (${s.period}). It belongs to the threads that recur across the archive — the same questions of reliance, explanation, and control that surface whether the artefact is a paper, a product, or a classroom.</p>
+        </div>
+        <div class="detail-side reveal">
+          <div class="metrics-box">
+            <div class="mlab">Key metrics</div>
+            ${o.metrics.map(m => `
+              <div class="metric-row">
+                <span class="k">${m.k}</span>
+                <span class="v">${m.v}${m.unit ? '<span class="unit">'+m.unit+'</span>' : ''}</span>
+              </div>
+            `).join('')}
+          </div>
+          ${related.length ? `
+            <div class="detail-relate">
+              <div class="rlab">Related entries</div>
+              ${related.map(r => `
+                <a onclick="go('detail','${r.id}')">
+                  <span>${r.title}</span>
+                  <span style="font-family:var(--mono);font-size:0.66rem;color:var(--ink-faint);">${r.arch}</span>
+                </a>
+              `).join('')}
+            </div>
+          ` : ''}
+          <div style="margin-top:1.6rem;">
+            <button class="btn ghost" onclick="go('career'); selectStage('${s.id}')" style="width:100%;justify-content:center;">View stage ${s.num} <span class="arr">→</span></button>
+          </div>
+        </div>
+      </div>
+    `;
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  /* ============================================================
+     RENDER: CV
+     ============================================================ */
+  function renderCV() {
+    const ms = document.getElementById('cv-milestones');
+    if (ms) {
+      ms.innerHTML = CV_MILESTONES.map(m => `
+        <div class="milestone">
+          <div class="ms-period">${m.period}</div>
+          <div class="ms-title">${m.title}</div>
+          <div class="ms-sub">${m.sub}</div>
+        </div>
+      `).join('');
+    }
+    const outs = document.getElementById('cv-outputs');
+    if (outs) {
+      const typeColors = {
+        Published: 'var(--c-research)', 'Under Review': 'var(--c-industry)',
+        WIP: 'var(--c-building)', Monograph: 'var(--c-writing)',
+        Patent: 'var(--c-teaching)', Project: 'var(--c-education)',
+        Certificate: 'var(--amber-soft)', Service: 'var(--c-writing)', Award: 'var(--amber)'
+      };
+      outs.innerHTML = CV_OUTPUTS.map(o => `
+        <li class="cv-output">
+          <span class="co-num">${o.num}</span>
+          <div>
+            <div class="co-title">${o.title}</div>
+            <div class="co-sub">${o.sub}</div>
+          </div>
+          <span class="co-type" style="color:${typeColors[o.type] || 'var(--ink-mute)'};">${o.type}</span>
+        </li>
+      `).join('');
+    }
+    requestAnimationFrame(() => observeReveals());
+  }
+
+  /* ============================================================
+     SCROLL REVEALS
+     ============================================================ */
+  let io;
+  function observeReveals() {
+    if (!io) {
+      io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }
+    document.querySelectorAll('.reveal:not(.in), .grid-rise:not(.in)').forEach(el => io.observe(el));
+  }
+
+  /* ============================================================
+     AMBIENT DOTS
+     ============================================================ */
+  (function initDots() {
+    const container = document.getElementById('ambient-dots');
+    if (!container) return;
+    const count = 40;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('span');
+      d.className = 'dot';
+      d.style.left = Math.random() * 100 + '%';
+      d.style.top = Math.random() * 100 + '%';
+      d.style.animationDelay = Math.random() * 4 + 's';
+      d.style.animationDuration = (3 + Math.random() * 4) + 's';
+      container.appendChild(d);
+    }
+  })();
+
+  /* ============================================================
+     CUSTOM CURSOR
+     ============================================================ */
+  (function initCursor() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    const cursor = document.getElementById('cursor');
+    if (!cursor) return;
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    function animate() {
+      cx += (mx - cx) * 0.2;
+      cy += (my - cy) * 0.2;
+      cursor.style.left = cx + 'px';
+      cursor.style.top = cy + 'px';
+      requestAnimationFrame(animate);
+    }
+    animate();
+    document.querySelectorAll('a, button, .card, .index-row, .tl-node, .chip, .breadcrumb a').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (el.classList.contains('card')) cursor.className = 'cursor hover-card';
+        else cursor.className = 'cursor hover-link';
+      });
+      el.addEventListener('mouseleave', () => cursor.className = 'cursor');
+    });
+  })();
+
+  /* ============================================================
+     INIT
+     ============================================================ */
+  document.addEventListener('DOMContentLoaded', () => {
+    observeReveals();
+    document.querySelector('#site-nav a').classList.add('active');
+  });
+  observeReveals();
+</script>
+</body>
+</html>
