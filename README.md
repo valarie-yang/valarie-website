@@ -26,17 +26,26 @@ The portfolio is intentionally structured as a living archive: not only what was
 
 ## Recommended reviewer path
 
-1. Start with the Web3 / FinTech product cases.
+1. Start with the role-specific flagship below: RWA for FinTech/Data roles, DEX for trading roles, or Assignment Grading for Applied AI roles.
 2. Review role scope and implementation boundaries before reading detailed artifacts.
-3. Look for product judgment in lifecycle states, exception handling, metrics, and data models.
+3. Look for product judgment in lifecycle states, exception handling, metrics, evaluation, and data models.
 4. Use the academic and teaching sections as context for systems thinking, not as a competing storyline.
 
-## Public product case repositories
+## Flagship public product cases
 
-- [RWA Investor Data & Reconciliation Product Case](https://github.com/valarie-yang/rwa-reconciliation-product-case)
-- [DEX Trading Product System Design](https://github.com/valarie-yang/dex-trading-product-system-design)
-- [Bitcoin-native Asset Analytics](https://github.com/valarie-yang/bitcoin-native-asset-analytics)
-- [Wallet Product System Design](https://github.com/valarie-yang/wallet-product-system-design)
+### Web3 / FinTech
+
+- [RWA Investor Data & Reconciliation](https://github.com/valarie-yang/rwa-reconciliation-product-case) — synthetic financial-data, reconciliation, lineage, and grounded AI explanation.
+- [DEX Trading Product System Design](https://github.com/valarie-yang/dex-trading-product-system-design) — quote lifecycle, execution states, user-risk controls, and read-only AI decision support.
+- [Bitcoin-native Asset Analytics](https://github.com/valarie-yang/bitcoin-native-asset-analytics) — protocol-event normalization, asset/address analytics, and reviewable risk labels.
+
+### Applied AI
+
+- [Human-in-the-Loop AI Assignment Grading](https://github.com/valarie-yang/assignment-ai-grading-system) — structured AI assessment, teacher review, controlled release, and evaluation gates.
+- [AI-Assisted Influencer Content Operations](https://github.com/valarie-yang/Influencer-Platform-2.0) — deterministic structured workflow from persona to publishing board.
+- [AI-Assisted Livestock Teaching Assistant](https://github.com/valarie-yang/livestock-teaching-assistant) — domain-learning workflow, teacher review, and safe remediation.
+
+All public materials are public-safe reconstructions or synthetic cases where stated. They are explicit about implementation status, data provenance, human approval, and non-production boundaries.
 
 ## Repository contents
 
