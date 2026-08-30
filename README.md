@@ -42,6 +42,8 @@ The portfolio is intentionally structured as a living archive: not only what was
 
 - `index.html` — the portfolio website as a standalone static page
 - `README.md` — this repo overview and reviewer guide
+- [`docs/project-status-matrix.md`](docs/project-status-matrix.md) — public status, hiring signal, and non-claims for each case
+- `THIRD-PARTY-NOTICES.md` — external links, bundled-material, and future asset boundary
 
 ## Boundary
 
