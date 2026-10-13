@@ -880,6 +880,7 @@
   }
   .ai-case h3 { font: 500 1.55rem var(--serif); color: var(--ink); line-height: 1.2; }
   .ai-case p { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.75; margin-top: 0.7rem; }
+  .ai-case .ai-case-cost { font-size: 0.72rem; color: var(--ink-mute); line-height: 1.55; margin-top: 0.45rem; }
   .ai-case a { color: var(--amber-soft); font-size: 0.78rem; display: inline-block; margin-top: 0.9rem; }
   .ai-case-note { font-size: 0.76rem; color: var(--ink-mute); margin-top: 1rem; max-width: 95ch; }
   .case-lifecycle { margin-top: 1.5rem; border: 1px solid var(--rule); padding: 0.75rem; background: var(--bg-panel); }
@@ -1490,6 +1491,7 @@
               <div class="status">Local AI bridge required · prototype</div>
               <h3>AI Assignment Grading Assistant</h3>
               <p>Turns assignment requirements into a draft rubric for teacher review and locking. AI then prepares criterion-linked preliminary scoring; the teacher reviews, edits, and confirms the final grade. When enabled, submission text, assignment name, and rubric pass through a local bridge to the configured model provider; this is not a hosted grader.</p>
+              <p class="ai-case-cost">API cost: author-reported small-scale DeepSeek test mean ~CNY 0.2 per assignment. Scope is not standardized; actual costs vary; not a quote, benchmark, or guarantee.</p>
               <a href="https://github.com/valarie-yang/assignment-ai-grading-system" target="_blank" rel="noreferrer">Read the public case →</a>
             </article>
             <article class="ai-case">
@@ -1497,6 +1499,7 @@
               <div class="status">Teacher-side prototype · separate student page</div>
               <h3>Muzhi Livestock Teaching Assistant</h3>
               <p>Turns an original or authorized teaching-case image, with an optional learning focus, into an editable question draft. The image and prompt/context are sent to the configured DeepSeek API. A teacher checks the question, answer, and explanation before saving to the current browser's local question bank, which is not connected to the separate student practice page.</p>
+              <p class="ai-case-cost">API cost: author-reported small-scale test mean ≤ CNY 0.10 per question for image recognition + generation. Scope is not standardized; actual costs vary; not a quote, benchmark, or guarantee; teacher review is excluded.</p>
               <a href="https://github.com/valarie-yang/livestock-teaching-assistant" target="_blank" rel="noreferrer">Read the public case →</a>
             </article>
           </div>
