@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Muzhi teaching image-to-question workflow</title>
+  <desc id="desc">A teacher selects an original or authorized teaching-case image, optionally sets a learning focus, uses a manually configured DeepSeek API to draft a question, then edits and reviews it before saving it in the current browser's local question bank. This is not connected to the public student practice page.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#101827"/><stop offset="1" stop-color="#18243a"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e4b56d"/></marker>
+    <style>.h{font:600 34px Inter,Arial,sans-serif;fill:#f4f0e8}.sub{font:20px Inter,Arial,sans-serif;fill:#b7c3d4}.n{font:700 16px Inter,Arial,sans-serif;letter-spacing:2px;fill:#e4b56d}.t{font:600 21px Inter,Arial,sans-serif;fill:#fff}.b{font:17px Inter,Arial,sans-serif;fill:#c7d1df}.f{font:16px Inter,Arial,sans-serif;fill:#aab7ca}</style>
+  </defs>
+  <rect width="1200" height="660" rx="28" fill="url(#bg)"/>
+  <text x="64" y="78" class="n">MUZHI · TEACHER CONTENT AUTHORING</text>
+  <text x="64" y="128" class="h">Turn a teaching image into a reviewable question draft</text>
+  <text x="64" y="165" class="sub">A teacher checks the content before it enters a local question bank.</text>
+  <g transform="translate(64 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#42536c"/>
+    <text x="22" y="35" class="n">01 · TEACHER INPUT</text><text x="22" y="78" class="t">Teaching-case image</text>
+    <text x="22" y="119" class="b"><tspan x="22">Original or authorized</tspan><tspan x="22" dy="27">image; focus is optional</tspan></text>
+  </g>
+  <g transform="translate(352 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#42536c"/>
+    <text x="22" y="35" class="n">02 · AI DRAFT</text><text x="22" y="78" class="t">Candidate question</text>
+    <text x="22" y="119" class="b"><tspan x="22">Image + optional focus</tspan><tspan x="22" dy="27">via configured API</tspan></text>
+  </g>
+  <g transform="translate(640 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#9b7749" stroke-width="2"/>
+    <text x="22" y="35" class="n">03 · TEACHER REVIEW</text><text x="22" y="78" class="t">Edit &amp; verify</text>
+    <text x="22" y="119" class="b"><tspan x="22">Check question, answer</tspan><tspan x="22" dy="27">and explanation</tspan></text>
+  </g>
+  <g transform="translate(928 220)">
+    <rect width="208" height="230" rx="18" fill="#202e44" stroke="#42536c"/>
+    <text x="20" y="35" class="n">04 · LOCAL SAVE</text><text x="20" y="78" class="t">Question bank</text>
+    <text x="20" y="119" class="b"><tspan x="20">Saved in this</tspan><tspan x="20" dy="27">browser only</tspan></text>
+  </g>
+  <path d="M312 335 H342" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/><path d="M600 335 H630" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/><path d="M888 335 H918" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="64" y="492" width="1072" height="142" rx="16" fill="#111a28" stroke="#42536c"/>
+  <text x="88" y="530" class="n">CURRENT BOUNDARY</text>
+  <text x="88" y="565" class="f">Manual DeepSeek API and network required. The local bank is not connected to the separate student practice page.</text>
+  <text x="88" y="589" class="f">The selected image and prompt/context go to DeepSeek. Use authorized, non-sensitive materials.</text>
+  <text x="88" y="615" class="f">Teaching practice only — not animal diagnosis or treatment guidance.</text>
+</svg>
