@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Living Archive — Valarie Yang · 杨竹欣</title>
-<meta name="description" content="The Living Archive — a curated record of work by Valarie Yang: lecturer, product manager (FinTech · Web3 · AI/Data), and PhD applicant in Philosophy of Technology." />
+<title>Valarie Yang — Product Manager | Applied AI, FinTech &amp; Web3</title>
+<meta name="description" content="Valarie Yang is a product manager building and shaping data-intensive products across applied AI, FinTech, and Web3. Explore public-safe product cases and prototypes." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -862,6 +862,29 @@
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 1.5rem;
   }
+  .ai-case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .ai-case {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 1.1rem;
+  }
+  .ai-case figure { margin: 0 0 1rem; }
+  .ai-case img { display: block; width: 100%; height: auto; border-radius: 2px; }
+  .ai-case .status {
+    font: 500 0.62rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 0.55rem;
+  }
+  .ai-case h3 { font: 500 1.55rem var(--serif); color: var(--ink); line-height: 1.2; }
+  .ai-case p { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.75; margin-top: 0.7rem; }
+  .ai-case a { color: var(--amber-soft); font-size: 0.78rem; display: inline-block; margin-top: 0.9rem; }
+  .ai-case-note { font-size: 0.76rem; color: var(--ink-mute); margin-top: 1rem; max-width: 95ch; }
+  .case-lifecycle { margin-top: 1.5rem; border: 1px solid var(--rule); padding: 0.75rem; background: var(--bg-panel); }
+  .case-lifecycle img { display: block; width: 100%; height: auto; }
+  @media (max-width: 760px) { .ai-case-grid { grid-template-columns: 1fr; } }
   .card {
     border: 1px solid var(--rule);
     border-radius: 2px;
@@ -1421,35 +1444,64 @@
             <div>
               <div class="eyebrow reveal">Archive · Catalogued MMXXVI</div>
               <h1 class="hero-title" style="margin-top:1.2rem;">
-                <span class="ln"><span>The Living</span></span>
-                <span class="ln"><span><em>Archive.</em></span></span>
+                <span class="ln"><span>Build what</span></span>
+                <span class="ln"><span>people can <em>trust.</em></span></span>
               </h1>
               <div class="hero-tag reveal">
                 <span class="dot"></span>
-                <span>I build and study systems that shape how people make decisions.</span>
+                <span>Product Manager · Applied AI · FinTech · Web3</span>
               </div>
             </div>
             <div class="hero-side reveal">
               <div class="name-block">
                 Valarie Yang
-                <span class="cn">杨 竹 欣</span>
               </div>
               <p class="role">
-                <strong>Lecturer &amp; Product Manager</strong> · FinTech · Web3 · AI/Data<br/>
-                Provincial Data Platforms · On-chain Trading · Regulatory Reporting<br/>
-                <em style="color:var(--amber-soft);">PhD Applicant</em> — Philosophy of Technology
+                <strong>Product Manager</strong> · Applied AI · FinTech · Web3<br/>
+                Data-intensive workflows · Human-in-the-loop AI<br/>
+                Open to international product opportunities
               </p>
             </div>
           </div>
 
           <p class="hero-lede reveal">
-            A curated record of work held at the intersection of provincial data platforms, on-chain financial systems, and the philosophy of human–AI reliance. The vertical axis is narrative — career stages told as a story. The horizontal axis is time. Themes thread through both, connecting a regulatory fix in Hangzhou to a dashboard in Kunming, a classroom, and a chain.
+            I turn complex data and institutional constraints into usable product workflows—from regulated financial reporting and on-chain systems to teacher-in-the-loop AI prototypes. This portfolio shows what I owned, what is demonstrable, and what still needs validation.
           </p>
 
           <div class="cta-row reveal">
-            <button class="btn" onclick="go('career')">Enter the archive <span class="arr">→</span></button>
-            <button class="btn ghost" onclick="go('archive')">Browse outcomes</button>
+            <button class="btn" onclick="document.getElementById('ai-prototypes').scrollIntoView({behavior:'smooth'})">Explore AI prototypes <span class="arr">→</span></button>
+            <button class="btn ghost" onclick="go('archive')">Browse career archive</button>
+            <a class="btn ghost" href="mailto:valarieyoung2121@gmail.com">Email Valarie</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/valarie-yang-08573b122/" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
+        </div>
+      </div>
+
+      <!-- Applied AI prototypes -->
+      <div class="section" id="ai-prototypes">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2>Applied AI <em>prototypes</em></h2>
+            <span class="note">Built to make the workflow inspectable · outcomes not yet validated</span>
+          </div>
+          <div class="ai-case-grid reveal">
+            <article class="ai-case">
+              <figure><picture><source media="(max-width: 760px)" srcset="assets/ai-assignment-grading-flow-mobile.svg"/><img src="assets/ai-assignment-grading-flow.svg" alt="Assignment requirements become a teacher-approved rubric, then criterion-linked AI suggestions for teacher review and final confirmation." /></picture></figure>
+              <div class="status">Local AI bridge required · prototype</div>
+              <h3>AI Assignment Grading Assistant</h3>
+              <p>Turns assignment requirements into a draft rubric for teacher review and locking. AI then prepares criterion-linked preliminary scoring; the teacher reviews, edits, and confirms the final grade. When enabled, submission text, assignment name, and rubric pass through a local bridge to the configured model provider; this is not a hosted grader.</p>
+              <a href="https://github.com/valarie-yang/assignment-ai-grading-system" target="_blank" rel="noreferrer">Read the public case →</a>
+            </article>
+            <article class="ai-case">
+              <figure><picture><source media="(max-width: 760px)" srcset="assets/muzhi-image-to-question-flow-mobile.svg"/><img src="assets/muzhi-image-to-question-flow.svg" alt="A teacher selects an authorized teaching image, generates a candidate question, reviews it, and saves it to the current browser's local question bank." /></picture></figure>
+              <div class="status">Teacher-side prototype · separate student page</div>
+              <h3>Muzhi Livestock Teaching Assistant</h3>
+              <p>Turns an original or authorized teaching-case image, with an optional learning focus, into an editable question draft. The image and prompt/context are sent to the configured DeepSeek API. A teacher checks the question, answer, and explanation before saving to the current browser's local question bank, which is not connected to the separate student practice page.</p>
+              <a href="https://github.com/valarie-yang/livestock-teaching-assistant" target="_blank" rel="noreferrer">Read the public case →</a>
+            </article>
+          </div>
+          <p class="ai-case-note">Both problem statements are product hypotheses, not conclusions from user interviews. Accuracy, teacher time savings, classroom adoption, and learning outcomes have not been validated. The livestock prototype is for teaching practice—not animal diagnosis or treatment guidance.</p>
+          <figure class="case-lifecycle"><picture><source media="(max-width: 760px)" srcset="assets/ai-product-lifecycle-mobile.svg"/><img src="assets/ai-product-lifecycle.svg" alt="Seven-stage product loop: hypothesis, task definition, MVP, vibe-coded build, human and AI testing, safe deployment, and feedback validation back to the hypothesis." /></picture></figure>
         </div>
       </div>
 
@@ -1491,9 +1543,9 @@
             <span class="note">Evidence paths · status-aware</span>
           </div>
           <div class="index-list reveal">
+            <a href="https://github.com/valarie-yang/assignment-ai-grading-system" target="_blank" rel="noreferrer"><span>AI Assignment Grading Assistant</span><span class="arr">↗</span></a>
+            <a href="https://github.com/valarie-yang/livestock-teaching-assistant" target="_blank" rel="noreferrer"><span>Muzhi Livestock Teaching Assistant</span><span class="arr">↗</span></a>
             <a href="https://github.com/valarie-yang/rwa-reconciliation-product-case" target="_blank" rel="noreferrer"><span>RWA Investor Data &amp; Reconciliation</span><span class="arr">↗</span></a>
-            <a href="https://github.com/valarie-yang/assignment-ai-grading-system" target="_blank" rel="noreferrer"><span>Human-in-the-Loop AI Assignment Grading</span><span class="arr">↗</span></a>
-            <a href="https://github.com/valarie-yang/livestock-teaching-assistant" target="_blank" rel="noreferrer"><span>AI-Assisted Livestock Teaching Assistant</span><span class="arr">↗</span></a>
             <a href="https://github.com/valarie-yang/dex-trading-product-system-design" target="_blank" rel="noreferrer"><span>DEX Trading Product System</span><span class="arr">↗</span></a>
             <a href="https://github.com/valarie-yang/Digital-Asset-RWA-Research-Browser" target="_blank" rel="noreferrer"><span>Digital Asset &amp; RWA Research Browser Agent</span><span class="arr">↗</span></a>
             <a href="https://github.com/valarie-yang/Influencer-Platform-2.0" target="_blank" rel="noreferrer"><span>AI-Assisted Influencer Content Operations</span><span class="arr">↗</span></a>
@@ -1733,7 +1785,7 @@
         <div class="cv-section">
           <div class="cv-section-head reveal">Contact</div>
           <div class="reveal" style="font-size:0.9rem;color:var(--ink-soft);line-height:1.9;">
-            <strong style="color:var(--ink);">Valarie Yang · 杨竹欣</strong><br/>
+            <strong style="color:var(--ink);">Valarie Yang</strong><br/>
             Lecturer, Dianchi College · PhD Applicant, Philosophy of Technology / STS<br/>
             Kunming, China<br/>
             <a href="mailto:valarieyoung2121@gmail.com" style="color:var(--amber-soft);">valarieyoung2121@gmail.com</a><br/>
@@ -1753,7 +1805,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="site">
     <div class="wrap foot-inner">
-      <div class="foot-brand">The Living <em>Archive</em> — Valarie Yang · 杨竹欣</div>
+      <div class="foot-brand">The Living <em>Archive</em> — Valarie Yang</div>
       <div class="foot-meta">
         Curated MMXXVI · Kunming, China<br/>
         <a href="mailto:valarieyoung2121@gmail.com" style="color:var(--amber-soft);">valarieyoung2121@gmail.com</a> · FinTech · Web3 · AI/Data · Philosophy of Technology
@@ -1804,7 +1856,7 @@
         "Joined <strong>Yunnan Tengyun Information Industry</strong> (a Tencent subsidiary) in December 2019 as Business Analyst in Strategy Development, analysing industry, operating performance and key projects. Contributed to a cross-functional pandemic research brief covering macroeconomics, the tourism sector, app user growth and revenue forecasting — delivered directly to executive leadership.",
         "In June 2020 transitioned to the Big Data Center as <strong>Product Manager</strong>, leading 0-to-1 delivery of the provincial big-data platform set under the 'Digital Yunnan' initiative for tourism and economic decision-makers. Five contracted platforms were all formally accepted in 2022: the <em>Tourism Economic Analysis Platform (Phase II)</em> (160 indicators, 40M+ records; indicator system co-built with Sun Yat-sen University's team), the <em>Big Data Visualization Platform</em> (10+ integrated data sources — consumer spending, OTA, POI, telecom, transport/aviation; benchmarked against Guizhou, Henan, Hangzhou), the <em>Big Data Aggregation Platform</em> (10→13 service interfaces, integrated with the Tourism Yunnan app), the <em>Digital Identity Service System</em> (real-name authentication + face-recognition check-in, docked with the MPS Third Research Institute), and the <em>Tourism AI Service System</em> (wake-word + scenic-spot robot capability, piloted in Shaxi).",
         "Also owned the distributed <em>16-Prefecture Tourism Dashboard</em> (4 themes, 96 indicators across 16 prefecture teams) and the <em>Yunnan Cultural, Cultural-Relics & Tourism Statistical Direct-Reporting System</em> for the provincial culture and tourism department — six modules covering 8,000+ lodging units and 426 A-rated attractions, which went live before the 2021 Mid-Autumn Festival.",
-        "Left Tengyun in August 2021; the five contracted platforms were formally accepted in 2022. Earlier, also conducted foreign-tourist field interviews in Dali and Lijiang for the English version of <em>Tourism Yunnan (一部手机游云南)</em>, defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility.",
+        "Left Tengyun in August 2021; the five contracted platforms were formally accepted in 2022. Earlier, also conducted foreign-tourist field interviews in Dali and Lijiang for the English version of <em>Tourism Yunnan</em>, defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility.",
         "The discipline of converting policy questions into data requirements — and back into decision interfaces for non-technical government users — was learned here."
       ],
       aside: [
@@ -1825,7 +1877,7 @@
       year: '2021',
       narrative: [
         "A four-year parallel chapter — teaching by day, building on-chain products by night.",
-        "<strong>Lecturer at Yunnan Technology and Business College</strong> (2021.08 – 2026.01): co-developed AI programme curricula and course syllabi for the Accounting School and the School of Intelligent Science & Engineering. Taught Introduction to AI, Data Visualization, Data Preprocessing, Data Acquisition, Big Data Case Studies, Financial Big Data, Economics, Multinational Corporate Management, Automated Technical English, and IELTS Speaking / Listening / Reading. Course lead for <em>Financial Big Data Analysis & Application</em>, building the course's indicator system, assessment bank, and case library. Concurrently served in the <strong>Teaching Quality Monitoring Centre</strong> (2021.09 – 2022.08) — routine class inspections, exam proctoring and teaching-incident reporting, supervisory-team coordination, student-evaluation / teacher-evaluation data analytics, and early-warning monitoring via the Changke platform and BI dashboards; supported the school's undergraduate-evaluation evidence build. Awarded the <strong>Lecturer</strong> professional title (2022) and the university's <strong>Teaching Quality Award</strong> (优课优酬, 2023); co-edited the monograph 《高等教育管理与教学实践评价》 as <em>associate editor</em>. Four years as class advisor; supervised 100+ bachelor theses; achieved a <strong>99.7 student evaluation score</strong> (top 5% in the university for three consecutive years).",
+        "<strong>Lecturer at Yunnan Technology and Business College</strong> (2021.08 – 2026.01): co-developed AI programme curricula and course syllabi for the Accounting School and the School of Intelligent Science & Engineering. Taught Introduction to AI, Data Visualization, Data Preprocessing, Data Acquisition, Big Data Case Studies, Financial Big Data, Economics, Multinational Corporate Management, Automated Technical English, and IELTS Speaking / Listening / Reading. Course lead for <em>Financial Big Data Analysis & Application</em>, building the course's indicator system, assessment bank, and case library. Concurrently served in the <strong>Teaching Quality Monitoring Centre</strong> (2021.09 – 2022.08) — routine class inspections, exam proctoring and teaching-incident reporting, supervisory-team coordination, student-evaluation / teacher-evaluation data analytics, and early-warning monitoring via the Changke platform and BI dashboards; supported the school's undergraduate-evaluation evidence build. Awarded the <strong>Lecturer</strong> professional title (2022) and the university's <strong>Teaching Quality Award</strong> (2023); co-edited the monograph <em>Higher Education Management and Teaching Practice Evaluation</em> as <em>associate editor</em>. Four years as class advisor; supervised 100+ bachelor theses; achieved a <strong>99.7 student evaluation score</strong> (top 5% in the university for three consecutive years).",
         "<strong>Product Manager at NX Lab</strong> (2024.03 – 2026.05), a small Web3 product team. Owned 0-to-1 product planning and delivery for three on-chain products: a <em>Bitcoin Inscription Asset Platform</em> (Ordinals / BRC-20 / Runes), a <em>DEX Platform</em> merging Uniswap-style AMM with Hyperliquid-style order book, and an <em>RWA Mini App</em> for a tokenized short-term treasury bond fund with an AI Data Copilot.",
         "Both threads met in the same question: how to externalise judgement — of a student, of a trade, of a reconciliation — into a system a person can trust and contest."
       ],
@@ -1885,8 +1937,8 @@
       pull: 'A system you can only demo on-site is still a system — the artefact boundary is where commerce meets memory.',
       metrics: [
         { k: 'Role', v: 'Business Analyst Intern', unit: 'Accenture · Melbourne' },
-        { k: 'Deliverable', v: 'HCM 系统 + 演示', unit: 'demo' },
-        { k: 'Artefacts', v: '无', unit: '商业保护' }
+        { k: 'Deliverable', v: 'HCM system + demo', unit: 'delivered' },
+        { k: 'Artefacts', v: 'Not public', unit: 'commercially protected' }
       ]
     },
     {
@@ -1908,7 +1960,7 @@
       pull: 'A hackathon idea is cheap; the discipline is finishing the deck against a real sector constraint.',
       metrics: [
         { k: 'Role', v: 'Concept + deck', unit: 'Grad Conf 2017' },
-        { k: 'Angle', v: '便携 · 环保', unit: 'healthcare' }
+        { k: 'Angle', v: 'Portable · lower waste', unit: 'healthcare' }
       ]
     },
     {
@@ -1926,7 +1978,7 @@
       id: 'tengyun-econ', arch: '№ 003', title: 'Tourism Economic Analysis Platform', titleSub: 'Phase II',
       cats: ['industry'], stage: 'tengyun', selected: true,
       lead: 'Provincial big-data decision-support platform — 160 indicators, 40M+ records, accepted in 2022.',
-      desc: 'Led Phase II of the Yunnan Tourism Economic Analysis Platform under the "Digital Yunnan" initiative. Authored PRD sections, partial prototypes, the indicator dictionary and data requirements, and the user manual. Productized an expert model and reconciled indicator calibers across the five thematic panels: macro tourism economy, industry scale, market analysis, behavioural analysis, and 专题 analysis. The platform reached 160 indicators and 40M+ records at 阶段性 delivery, supporting provincial tourism economic decision-making.',
+      desc: 'Led Phase II of the Yunnan Tourism Economic Analysis Platform under the "Digital Yunnan" initiative. Authored PRD sections, partial prototypes, the indicator dictionary and data requirements, and the user manual. Productized an expert model and reconciled indicator definitions across five thematic panels: macro tourism economy, industry scale, market analysis, behavioural analysis, and special-topic analysis. At a phased delivery milestone, the platform covered 160 indicators and 40M+ records, supporting provincial tourism economic decision-making.',
       pull: 'A provincial platform is less a product than a treaty between policy and data — and the indicator dictionary is its fine print.',
       metrics: [
         { k: 'Indicators', v: '160', unit: 'catalogued' },
@@ -1965,7 +2017,7 @@
       id: 'tengyun-english', arch: '№ 006', title: 'Tourism Yunnan — English Research', titleSub: 'Field interviews',
       cats: ['research', 'industry'], stage: 'tengyun',
       lead: 'Foreign-tourist field interviews in Dali and Lijiang — four capability clusters defined.',
-      desc: 'Conducted field user research for the English version of "Tourism Yunnan" (一部手机游云南). Interviewed foreign tourists in English in Dali and Lijiang; produced a user analysis defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility. Findings fed into banner / festival push, attraction search with English descriptions, and visitor flow monitoring / forecasting requirements.',
+      desc: 'Conducted field user research for the English version of "Tourism Yunnan". Interviewed foreign tourists in English in Dali and Lijiang; produced a user analysis defining four core capability clusters: content discovery, attraction information, saved check-ins, and smart mobility. Findings fed into banner / festival push, attraction search with English descriptions, and visitor flow monitoring / forecasting requirements.',
       pull: 'Field research is the slowest form of product design — and the only one that actually meets the user.',
       metrics: [
         { k: 'Sites', v: 'Dali · Lijiang', unit: 'field' },
@@ -1975,15 +2027,15 @@
       ]
     },
     {
-      id: 'tengyun-aggregation', arch: '№ 007', title: 'Big Data Aggregation Platform', titleSub: 'Service interfaces · 一机游',
+      id: 'tengyun-aggregation', arch: '№ 007', title: 'Big Data Aggregation Platform', titleSub: 'Service interfaces · Tourism Yunnan',
       cats: ['industry'], stage: 'tengyun',
       lead: 'Provincial tourism big-data aggregation service — 10→13 service interfaces, integrated with the Tourism Yunnan app; accepted in 2022.',
-      desc: 'Owned the provincial Tourism Big Data Aggregation Platform — a service-layer product aggregating tourism data assets and exposing them as standardised interfaces for downstream apps, including the "Tourism Yunnan" (一部手机游云南) super-app. Grew the service-interface catalogue from 10 to 13 endpoints; aligned data partitioning with administrative boundaries; coordinated the interface-form collaboration with Tencent (Tengyun built the applications; Tencent supplied visualisation / a simplified RayData capability). Resolved stability issues during interface and service upgrades through capability migration.',
+      desc: 'Owned the provincial Tourism Big Data Aggregation Platform — a service-layer product aggregating tourism data assets and exposing them as standardised interfaces for downstream apps, including the "Tourism Yunnan" super-app. Grew the service-interface catalogue from 10 to 13 endpoints; aligned data partitioning with administrative boundaries; coordinated the interface-form collaboration with Tencent (Tengyun built the applications; Tencent supplied visualisation / a simplified RayData capability). Resolved stability issues during interface and service upgrades through capability migration.',
       pull: 'An aggregation platform is a treaty between many data owners — and the interface catalogue is its common vocabulary.',
       metrics: [
         { k: 'Interfaces', v: '10 → 13', unit: 'service' },
         { k: 'Downstream', v: 'Tourism Yunnan', unit: 'app' },
-        { k: 'Partitions', v: '行政区划', unit: 'admin boundaries' },
+        { k: 'Partitions', v: 'Region-based', unit: 'admin boundaries' },
         { k: 'Status', v: '2022', unit: 'accepted' }
       ]
     },
@@ -1991,10 +2043,10 @@
       id: 'tengyun-identity', arch: '№ 008', title: 'Digital Identity Service System', titleSub: 'Real-name · face check-in',
       cats: ['industry'], stage: 'tengyun',
       lead: 'Provincial tourism digital-identity service — real-name authentication + face-recognition check-in, docked with the MPS Third Research Institute; accepted in 2022.',
-      desc: 'Owned the Digital Identity Service System for provincial tourism — real-name authentication (实名认证) and face-recognition (刷脸) check-in capabilities. Docked with the Ministry of Public Security\'s Third Research Institute via Tencent Cloud 慧眼 identity verification; drew the boundary between face-recognition and QR-code check-in flows (distinct cost lines, non-overlapping functionality). Verified actual vs. real-name user counts via back-end data pulls; supported second-round verification for Tourism Yunnan users.',
+      desc: 'Owned the Digital Identity Service System for provincial tourism — identity verification and face-recognition check-in capabilities. Integrated with the Third Research Institute of the Ministry of Public Security through Tencent Cloud identity verification; defined the boundary between face-recognition and QR-code check-in flows (distinct cost lines, non-overlapping functionality). Verified actual vs. verified-user counts via back-end data pulls; supported second-round verification for Tourism Yunnan users.',
       pull: 'Identity is the quietest platform — until a check-in becomes a legal record.',
       metrics: [
-        { k: 'Auth', v: '实名 + 刷脸', unit: 'real-name · face' },
+        { k: 'Auth', v: 'Verified + face', unit: 'identity · check-in' },
         { k: 'Docked', v: 'MPS 3rd Inst.', unit: 'public security' },
         { k: 'Service', v: '5M+', unit: 'users scale' },
         { k: 'Status', v: '2022', unit: 'accepted' }
@@ -2004,7 +2056,7 @@
       id: 'tengyun-stats', arch: '№ 009', title: 'Cultural & Tourism Statistical Direct-Reporting System', titleSub: 'Provincial · 6 modules',
       cats: ['industry'], stage: 'tengyun',
       lead: 'Provincial statistical direct-reporting system — 6 modules, 8,000+ lodging units, 426 A-rated attractions; live before the 2021 Mid-Autumn Festival.',
-      desc: 'Owned the Yunnan Provincial Cultural, Cultural-Relics & Tourism Statistical Direct-Reporting System (云南省文化文物和旅游统计直报系统) for the provincial culture and tourism department. Designed six modules — nameplate library (名录库), report centre (报表中心), holiday reporting, sample survey, aggregation, and analysis — covering 8,000+ lodging units, 426 A-rated attractions, 970+ star-rated hotels, 151 libraries, and 1,455 cultural venues/stations. Standardised the reporting calendar (monthly for star-rated hotels; annual→monthly cadence upgrades), built the province→prefecture→county→enterprise reporting hierarchy, and supported one-time reporting shared with the Ministry\'s system. Benchmark-collaborated with Hunan 12301; delivered PC-first; went live before the 2021 Mid-Autumn Festival (Sept 18).',
+      desc: 'Owned the Yunnan Provincial Culture, Cultural Heritage & Tourism Statistical Reporting System for the provincial culture and tourism department. Designed six modules — entity registry, reporting centre, holiday reporting, sample survey, aggregation, and analysis — covering 8,000+ lodging units, 426 A-rated attractions, 970+ star-rated hotels, 151 libraries, and 1,455 cultural venues/stations. Standardised the reporting calendar (monthly for star-rated hotels; annual→monthly cadence upgrades), built the province→prefecture→county→enterprise reporting hierarchy, and supported one-time reporting shared with the Ministry\'s system. Benchmark-collaborated with Hunan 12301; delivered PC-first; went live before the 2021 Mid-Autumn Festival (Sept 18).',
       pull: 'A direct-reporting system is the data supply chain made literal — every report is a contract between an enterprise and a province.',
       metrics: [
         { k: 'Modules', v: '6', unit: 'nameplate · report · holiday · survey · agg · analysis' },
@@ -2017,11 +2069,11 @@
       id: 'tengyun-ai', arch: '№ 010', title: 'Tourism AI Service System', titleSub: 'Wake words · scenic robots',
       cats: ['industry'], stage: 'tengyun',
       lead: 'Provincial tourism AI service system — wake-word and scenic-spot robot capabilities, piloted in Shaxi; accepted in 2022.',
-      desc: 'Owned the provincial Tourism AI Service System — wake-word (唤醒词) and scenic-spot robot capabilities for attractions. Piloted in Shaxi (沙溪), the only site then possessing the hardware baseline (robots); surfaced the contract ambiguity around the number of configured wake-words and the hardware dependency for full roll-out, and delivered second-round verification evidence.',
+      desc: 'Owned the provincial Tourism AI Service System — wake-word and scenic-spot robot capabilities for attractions. Piloted in Shaxi, the only site then possessing the hardware baseline (robots); surfaced the contract ambiguity around the number of configured wake-words and the hardware dependency for full roll-out, and delivered second-round verification evidence.',
       pull: 'A pilot is the honest version of a platform — it shows what the hardware, not the deck, will support.',
       metrics: [
-        { k: 'Capability', v: '唤醒词 · 机器人', unit: 'wake-word · robot' },
-        { k: 'Pilot', v: '沙溪', unit: 'Shaxi' },
+        { k: 'Capability', v: 'Voice activation · robots', unit: 'tourism services' },
+        { k: 'Pilot', v: 'Shaxi', unit: 'Yunnan' },
         { k: 'Hardware', v: 'robot-ready', unit: 'baseline' },
         { k: 'Status', v: '2022', unit: 'accepted' }
       ]
@@ -2069,7 +2121,7 @@
       id: 'academic-outputs', arch: '№ 014', title: 'Academic Outputs', titleSub: 'Papers · Monographs · Patent',
       cats: ['research', 'writing'], stage: 'current', selected: true,
       lead: '5 papers (2 published · 1 SSCI under review · 2 WIP), 2 monographs, 1 patent contribution, 1 provincial research project.',
-      desc: 'Published: "Identification of the non-technological indicators on companies\' innovation ability" (Modern Economics & Management Forum, 5(3), 2024) and "Student engagement analysis in video streams based on a hybrid CNN-LSTM architecture" (ICMAEA 2025, Chongqing). Under review (SSCI Q3, IF 2.2): "A heterodetic assessment of the mediation effect of media effect on management cognition and green innovation on Chinese listed firms" (Asian Business & Management). Working manuscripts: "Targeted Cluster Policy and the Rewiring of Green Knowledge Networks" (2027 est.) and "Disclosed Digital Technology Risk and Persistent Green Innovation: Evidence from Chinese Listed Firms" (2027 est.). Co-authored monographs: 《高等教育管理与教学实践评价》(Jilin Education Press, 2022, ISBN 978-7-5734-0655-2) and 《大数据时代下信息化教学的实践与应用》(Beijing University of Technology Press, 2018, ISBN 978-7-5639-6316-4). Contributed to product design of patent CN202111112415 "Interface development method, device, computer equipment and storage medium" (Yunnan Tengyun, 2021; inventors 李振楠 · 汤映东). Implementation member of the 2021 Yunnan Provincial Electronic Information & Next-Gen IT Special Project "Research and application of key technologies of industry resource sharing and business collaboration for smart tourism" (chaired by Yunnan University; Topic 2 product & model optimization).',
+      desc: 'Published: "Identification of the non-technological indicators on companies\' innovation ability" (Modern Economics & Management Forum, 5(3), 2024) and "Student engagement analysis in video streams based on a hybrid CNN-LSTM architecture" (ICMAEA 2025, Chongqing). Under review (SSCI Q3, IF 2.2): "A heterodetic assessment of the mediation effect of media effect on management cognition and green innovation on Chinese listed firms" (Asian Business & Management). Working manuscripts: "Targeted Cluster Policy and the Rewiring of Green Knowledge Networks" (2027 est.) and "Disclosed Digital Technology Risk and Persistent Green Innovation: Evidence from Chinese Listed Firms" (2027 est.). Co-authored monographs: <em>Higher Education Management and Teaching Practice Evaluation</em> (Jilin Education Press, 2022, ISBN 978-7-5734-0655-2) and <em>Practice and Application of Information-Based Teaching in the Big Data Era</em> (Beijing University of Technology Press, 2018, ISBN 978-7-5639-6316-4). Contributed to product design of patent CN202111112415 "Interface development method, device, computer equipment and storage medium" (Yunnan Tengyun, 2021). Implementation member of the 2021 Yunnan Provincial Electronic Information & Next-Gen IT Special Project "Research and application of key technologies of industry resource sharing and business collaboration for smart tourism" (chaired by Yunnan University; Topic 2 product & model optimization).',
       pull: 'The same loop a product manager closes one edge case at a time — reliance, explanation, control, governance — returns, at a different altitude, as a research programme.',
       metrics: [
         { k: 'Papers', v: '5', unit: '2 pub · 1 SSCI · 2 WIP' },
@@ -2079,41 +2131,41 @@
       ]
     },
     {
-      id: 'wip-grading', arch: '№ WIP-01', title: 'AI Assignment Grading System', titleSub: 'Dynamic rubric generation',
-      cats: ['building', 'teaching'], stage: 'current', wip: true,
-      lead: 'In development — a grading system exploring AI-generated rubrics that adapt to each submission.',
-      desc: 'Currently in development. The hypothesis: rather than applying a static rubric across submissions, the system generates a rubric calibrated to each piece of work — turning grading into a conversation between the work and its assessment. Stack and integration are being scoped.',
-      pull: 'A rubric that moves with the work, instead of the work bending to the rubric.',
+      id: 'wip-grading', arch: '№ AI-01', title: 'AI Assignment Grading Assistant', titleSub: 'Rubric-first teacher review',
+      cats: ['building', 'teaching'], stage: 'current', wip: false, status: 'Prototype',
+      lead: 'Assignment requirements become a teacher-reviewed rubric and criterion-linked AI preliminary scoring.',
+      desc: 'Product hypothesis: teachers may benefit from a consistent, reviewable path from assignment requirements to scoring evidence. The prototype drafts a rubric from the requirements; a teacher reviews and locks it before AI preliminary scoring. AI suggestions are organized by criterion and evidence, then a teacher reviews, edits, and confirms the final grade. The public page exposes the workbench interface, but AI scoring requires a separately configured local bridge and is not a hosted service. Accuracy, reliability, classroom adoption, and time savings have not been validated.',
+      pull: 'Make the scoring basis reviewable before asking a model to suggest a score.',
       metrics: [
-        { k: 'Status', v: 'In development', unit: 'scoping' },
-        { k: 'Goal', v: 'Dynamic', unit: 'rubrics' },
-        { k: 'Domain', v: 'Pedagogy', unit: 'AI' },
-        { k: 'Stack', v: 'TBD', unit: 'scoping' }
+        { k: 'Status', v: 'Prototype', unit: 'local bridge' },
+        { k: 'Workflow', v: 'Rubric-first', unit: 'teacher gate' },
+        { k: 'AI output', v: 'Preliminary', unit: 'criterion-linked' },
+        { k: 'Final grade', v: 'Teacher', unit: 'confirmed' }
       ]
     },
     {
-      id: 'wip-vet', arch: '№ WIP-02', title: 'Livestock Vet Teaching Agent', titleSub: 'Domain-specific pedagogy',
-      cats: ['teaching'], stage: 'current', wip: true,
-      lead: 'In development — a teaching agent for the narrow, high-stakes domain of livestock veterinary medicine.',
-      desc: 'Currently in development. A teaching agent scoped for the narrow, high-stakes domain of livestock veterinary medicine. The design question: in a field where wrong answers carry weight, how is authority and accountability surfaced in the agent itself — through signed templates, source citations, or refusal? Knowledge base and adapters are being scoped.',
-      pull: 'In veterinary medicine, a signed answer is not a formality — it is a boundary on harm.',
+      id: 'wip-vet', arch: '№ AI-02', title: 'Muzhi Livestock Teaching Assistant', titleSub: 'Image-to-question authoring',
+      cats: ['teaching', 'building'], stage: 'current', wip: false, status: 'Local prototype',
+      lead: 'A teacher selects a teaching image and optional focus, then reviews an AI-drafted question before local saving.',
+      desc: 'Product hypothesis: converting teaching-case images into structured questions may involve repetitive manual matching and editing. The teacher-side prototype uses an original or authorized image and optional prompt to draft a candidate question, answer, and explanation through a manually configured DeepSeek API. The image and prompt/context are sent to the API. The teacher reviews the draft before saving it in the current browser’s local question bank. A separate student practice page is not connected to the teacher bank, and server-side authoring/publishing is not deployed. This is for teaching practice, not animal diagnosis or treatment guidance.',
+      pull: 'Turn a source image into a draft worth reviewing—not content to publish without a teacher.',
       metrics: [
-        { k: 'Status', v: 'In development', unit: 'scoping' },
-        { k: 'Domain', v: 'Livestock', unit: 'veterinary' },
-        { k: 'Goal', v: 'Signed', unit: 'authority' },
-        { k: 'Adapter', v: 'TBD', unit: 'scoping' }
+        { k: 'Status', v: 'Local prototype', unit: 'teacher-side' },
+        { k: 'Input', v: 'Image', unit: '+ optional focus' },
+        { k: 'Review', v: 'Teacher', unit: 'before saving' },
+        { k: 'Publishing', v: 'Not connected', unit: 'to student page' }
       ]
     },
     {
       id: 'wip-typewords', arch: '№ WIP-03', title: 'TypeWords', titleSub: 'Vocabulary learning app',
       cats: ['building'], stage: 'current', wip: true,
-      lead: 'In development — a vocabulary app scoped for CET-4/6, IELTS, TOEFL, GRE, and 高考英语.',
+      lead: 'In development — a vocabulary app scoped for CET-4/6, IELTS, TOEFL, GRE, and Gaokao English.',
       desc: 'Currently in development. A focused vocabulary learning application being scoped around five standardised examination word books. The design intent: sustained, low-friction retention — the kind of practice that turns a word list into a habit, and a habit into fluency.',
       pull: 'Five exams, one habit: the smallest unit of mastery, repeated until it compounds.',
       metrics: [
         { k: 'Status', v: 'In development', unit: 'scoping' },
         { k: 'Word books', v: '5', unit: 'planned' },
-        { k: 'Exams', v: 'CET · IELTS', unit: 'TOEFL · GRE · 高考' },
+        { k: 'Exams', v: 'CET · IELTS', unit: 'TOEFL · GRE · Gaokao' },
         { k: 'Goal', v: 'Retention', unit: 'low-friction' }
       ]
     }
@@ -2136,26 +2188,26 @@
     { num: '03', title: 'A heterodetic assessment of the mediation effect of media effect on management cognition and green innovation', sub: 'Asian Business & Management (SSCI Q3, IF 2.2) — under review', type: 'Under Review' },
     { num: '04', title: 'Targeted Cluster Policy and the Rewiring of Green Knowledge Networks', sub: 'Working manuscript, 2027 est.', type: 'WIP' },
     { num: '05', title: 'Disclosed Digital Technology Risk and Persistent Green Innovation', sub: 'Working manuscript, 2027 est.', type: 'WIP' },
-    { num: '06', title: '《高等教育管理与教学实践评价》', sub: 'Jilin Education Press, 2022 · ISBN 978-7-5734-0655-2', type: 'Monograph' },
-    { num: '07', title: '《大数据时代下信息化教学的实践与应用》', sub: 'Beijing University of Technology Press, 2018 · ISBN 978-7-5639-6316-4', type: 'Monograph' },
+    { num: '06', title: 'Higher Education Management and Teaching Practice Evaluation', sub: 'Jilin Education Press, 2022 · ISBN 978-7-5734-0655-2', type: 'Monograph' },
+    { num: '07', title: 'Practice and Application of Information-Based Teaching in the Big Data Era', sub: 'Beijing University of Technology Press, 2018 · ISBN 978-7-5639-6316-4', type: 'Monograph' },
     { num: '08', title: 'CN202111112415 — Interface development method, device, computer equipment and storage medium', sub: 'Yunnan Tengyun, 2021 · product design contribution', type: 'Patent' },
     { num: '09', title: 'Research and application of key technologies of industry resource sharing and business collaboration for smart tourism', sub: 'Yunnan 2021 Provincial Special Project · chaired by Yunnan University · Topic 2', type: 'Project' },
-    { num: '10', title: '中级工程师 (Engineer · intermediate-level)', sub: '计算机技术与软件专业技术资格(水平)考试 (软考) · 人力资源和社会保障部 + 工业和信息化部 联合用印', type: 'Certificate' },
-    { num: '11', title: '高级工程师 (Senior Engineer · advanced-level)', sub: '计算机技术与软件专业技术资格(水平)考试 (软考) · 人力资源和社会保障部 + 工业和信息化部 联合用印', type: 'Certificate' },
-    { num: '12', title: '讲师 (Lecturer · 高校教师中级职称)', sub: '2022 · 云南工商学院专业技术职务评审 · 云南省高校教师职称系列', type: 'Certificate' },
-    { num: '13', title: '高等学校教师资格 (笔试合格)', sub: '2021 · 云南省教师资格认定课程考试合格证书', type: 'Certificate' },
-    { num: '14', title: '云南省高等职业院校专业综合评价专家库人选', sub: '2024.06 · 云南省高职专业综合评价专家库', type: 'Service' },
-    { num: '15', title: '论文评审专家', sub: '学术论文同行评审 · 学术服务', type: 'Service' },
-    { num: '16', title: '优课优酬大赛 — 教学质量奖', sub: '2023.03 · 云南工商学院', type: 'Award' },
-    { num: '17', title: '第 19 届外研社杯全国中学生外语素养大赛 — 优秀评委', sub: '2023.03 · 外研社', type: 'Award' },
-    { num: '18', title: '精彩课堂 (新教师组) 决赛三等奖', sub: '2022.06 · 会计学院', type: 'Award' },
+    { num: '10', title: 'Intermediate-Level Engineer', sub: 'National Computer Technology and Software Professional Qualification · jointly issued by the human resources and industry ministries', type: 'Certificate' },
+    { num: '11', title: 'Senior Engineer', sub: 'National Computer Technology and Software Professional Qualification · jointly issued by the human resources and industry ministries', type: 'Certificate' },
+    { num: '12', title: 'Lecturer · Higher Education', sub: '2022 · Yunnan Technology and Business College professional title review', type: 'Certificate' },
+    { num: '13', title: 'Higher Education Teaching Qualification', sub: '2021 · Provincial teacher qualification examination certificate', type: 'Certificate' },
+    { num: '14', title: 'Expert Pool Member · Vocational Programme Evaluation', sub: '2024.06 · Yunnan provincial higher vocational programme evaluation', type: 'Service' },
+    { num: '15', title: 'Academic Peer Reviewer', sub: 'Journal and academic paper review', type: 'Service' },
+    { num: '16', title: 'Teaching Quality Award', sub: '2023.03 · Yunnan Technology and Business College', type: 'Award' },
+    { num: '17', title: 'Outstanding Judge · National Student English Literacy Competition', sub: '2023.03 · FLTRP Cup', type: 'Award' },
+    { num: '18', title: 'Third Place · Excellent Classroom Competition', sub: '2022.06 · Accounting School, new-teacher category', type: 'Award' },
     { num: '19', title: 'Monash Open Day Student Ambassador', sub: '2016 · Monash University · faculty representative to prospective students', type: 'Service' },
-    { num: '20', title: '2017 墨尔本中国新年庆祝活动 — 志愿服务感谢函', sub: '2017.01 · 澳大利亚维州华人社团联合会 (FCA VIC)', type: 'Service' },
-    { num: '21', title: 'RMIT 2016 Data Analytics Competition — 参赛证书', sub: '2016 · RMIT School of Business IT & Logistics', type: 'Certificate' },
-    { num: '22', title: 'Monash Peer Mentor Program', sub: '2017 · Faculty of IT · 签发人 Professor Susan Elliott (DVC & VP Education)', type: 'Service' },
+    { num: '20', title: 'Volunteer Recognition · Melbourne Chinese New Year Celebration', sub: '2017.01 · Federation of Chinese Associations of Victoria', type: 'Service' },
+    { num: '21', title: 'RMIT 2016 Data Analytics Competition · Participant', sub: '2016 · RMIT School of Business IT & Logistics', type: 'Certificate' },
+    { num: '22', title: 'Monash Peer Mentor Program', sub: '2017 · Faculty of IT · Issued by Professor Susan Elliott, Deputy Vice-Chancellor and Vice-President (Education)', type: 'Service' },
     { num: '23', title: 'CPR First Aid Statement of Attainment', sub: 'HLTAID003/004 · CPR First Aid (RTO 21903) · Melbourne', type: 'Certificate' },
     { num: '24', title: 'Working with Children Check (WWCC)', sub: '2017 · Department of Justice and Regulation · Employee', type: 'Certificate' },
-    { num: '25', title: 'MSJ MEDIA 新闻发布会 — 志愿者', sub: '2017.09.03 · Director Wendy Ji', type: 'Service' }
+    { num: '25', title: 'MSJ MEDIA Press Conference · Volunteer', sub: '2017.09.03 · Director Wendy Ji', type: 'Service' }
   ];
 
   const CAT_LABELS = {
@@ -2345,7 +2397,7 @@
     return `
       <article class="card" style="--cat-color:${CAT_COLORS[primary]};" onclick="go('detail','${o.id}')">
         <div class="card-top">
-          <span class="card-arch">${o.arch}${o.wip ? '<span class="card-wip">In Development</span>' : ''}</span>
+          <span class="card-arch">${o.arch}${o.status ? '<span class="card-wip">'+o.status+'</span>' : o.wip ? '<span class="card-wip">In Development</span>' : ''}</span>
           <div class="card-cats">${o.cats.map(c => `<span class="cat-tag ${c}">${CAT_LABELS[c]}</span>`).join('')}</div>
         </div>
         <h3 class="card-title">${o.title}</h3>
@@ -2372,7 +2424,7 @@
       <div class="detail-head">
         <button class="back-btn reveal" onclick="go('archive')"><span class="arr">←</span> Back to outcomes</button>
         <div class="detail-meta reveal">
-          <span class="detail-arch">${o.arch}</span>${o.wip ? '<span class="detail-wip">In Development</span>' : ''}
+          <span class="detail-arch">${o.arch}</span>${o.status ? '<span class="detail-wip">'+o.status+'</span>' : o.wip ? '<span class="detail-wip">In Development</span>' : ''}
           ${o.cats.map(c => `<span class="cat-tag ${c}">${CAT_LABELS[c]}</span>`).join('')}
         </div>
         <h1 class="detail-title reveal">${o.title.replace(o.titleSub, '<em>'+o.titleSub+'</em>')}</h1>

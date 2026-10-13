@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">AI assignment grading workflow</title>
+  <desc id="desc">Assignment requirements are used to draft a rubric, which a teacher reviews and locks before a locally configured AI bridge creates criterion-linked preliminary scoring. The teacher reviews, edits, and confirms the final grade.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#101827"/><stop offset="1" stop-color="#18243a"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e4b56d"/></marker>
+    <style>.h{font:600 34px Inter,Arial,sans-serif;fill:#f4f0e8}.sub{font:20px Inter,Arial,sans-serif;fill:#b7c3d4}.n{font:700 16px Inter,Arial,sans-serif;letter-spacing:2px;fill:#e4b56d}.t{font:600 21px Inter,Arial,sans-serif;fill:#fff}.b{font:17px Inter,Arial,sans-serif;fill:#c7d1df}.f{font:16px Inter,Arial,sans-serif;fill:#aab7ca}</style>
+  </defs>
+  <rect width="1200" height="660" rx="28" fill="url(#bg)"/>
+  <text x="64" y="78" class="n">APPLIED AI · TEACHER-IN-THE-LOOP</text>
+  <text x="64" y="128" class="h">From assignment brief to teacher-confirmed grade</text>
+  <text x="64" y="165" class="sub">AI drafts evidence-linked suggestions; the teacher owns the final decision.</text>
+  <g transform="translate(64 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#42536c"/>
+    <text x="22" y="35" class="n">01 · INPUT</text><text x="22" y="78" class="t">Assignment brief</text>
+    <text x="22" y="119" class="b"><tspan x="22">Requirements and</tspan><tspan x="22" dy="27">learning objectives</tspan></text>
+  </g>
+  <g transform="translate(352 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#9b7749" stroke-width="2"/>
+    <text x="22" y="35" class="n">02 · TEACHER GATE</text><text x="22" y="78" class="t">Review &amp; lock rubric</text>
+    <text x="22" y="119" class="b"><tspan x="22">Draft criteria from</tspan><tspan x="22" dy="27">requirements; teacher approves</tspan></text>
+  </g>
+  <g transform="translate(640 220)">
+    <rect width="244" height="230" rx="18" fill="#202e44" stroke="#42536c"/>
+    <text x="22" y="35" class="n">03 · AI PRELIMINARY</text><text x="22" y="78" class="t">Criterion-linked draft</text>
+    <text x="22" y="119" class="b"><tspan x="22">Score suggestions with</tspan><tspan x="22" dy="27">supporting evidence</tspan></text>
+  </g>
+  <g transform="translate(928 220)">
+    <rect width="208" height="230" rx="18" fill="#202e44" stroke="#9b7749" stroke-width="2"/>
+    <text x="20" y="35" class="n">04 · TEACHER</text><text x="20" y="78" class="t">Review &amp; confirm</text>
+    <text x="20" y="119" class="b"><tspan x="20">Edit, explain,</tspan><tspan x="20" dy="27">then confirm grade</tspan></text>
+  </g>
+  <path d="M312 335 H342" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/><path d="M600 335 H630" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/><path d="M888 335 H918" stroke="#e4b56d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="64" y="492" width="1072" height="142" rx="16" fill="#111a28" stroke="#42536c"/>
+  <text x="88" y="530" class="n">CURRENT BOUNDARY</text>
+  <text x="88" y="565" class="f">The public page shows the workbench UI. AI scoring requires a separately configured local bridge; no hosted grading service is available.</text>
+  <text x="88" y="589" class="f">When scoring is enabled, submission text, assignment name, and rubric go via the bridge to the configured model provider.</text>
+  <text x="88" y="615" class="f">Accuracy, reliability, and teacher time savings have not been validated. Use only authorized work.</text>
+</svg>

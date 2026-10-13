@@ -1,59 +1,42 @@
-# Valarie Yang Portfolio Website
+# Valarie Yang — Product Portfolio
 
-Public portfolio website for Valarie Yang: a curated archive of product, research, teaching, and building work across Web3, FinTech, AI/data, and philosophy of technology.
+Public portfolio website for an international Product Manager focused on Applied AI, FinTech, Web3, and data-intensive workflows.
 
-**Live artifact:** single-page portfolio website  
-**Primary audience:** product hiring teams, founders, academic reviewers, and collaborators  
-**Portfolio file:** [Valarie Yang — Product Portfolio](https://www.figma.com/design/pIUP2RYiUR3fpGoKHjRGnU/Valarie-Yang-%E2%80%94-Product-Portfolio?node-id=0-1)  
+**Portfolio principle:** show the user task, product decisions, artifact status, and evidence boundary before the archive expands.
+
+**Primary audience:** international product hiring teams, founders, and collaborators
 **Profile:** [LinkedIn](https://www.linkedin.com/in/valarie-yang-08573b122/) · [GitHub](https://github.com/valarie-yang)
-
-## Founder Orange review pass
-
-**Verdict:** the portfolio should not read like a storage room of achievements. It should quickly prove a sharper promise: Valarie can turn complex financial, technical, and institutional systems into understandable product decisions.
-
-**Updated narrative principle:** lead with the strongest hiring signal first, then let the archive expand.
 
 ## Positioning
 
-I work at the intersection of:
+I turn complex data and institutional constraints into usable product workflows—from regulated financial reporting and on-chain systems to teacher-in-the-loop AI prototypes. The site leads with selected AI prototypes and then links to public-safe Web3/FinTech cases and a deeper career archive.
 
-- Web3 and FinTech product systems
-- Wallet, DEX, RWA, and on-chain analytics cases
-- AI/data product thinking
-- Research, teaching, and philosophy of technology
+## Featured AI prototypes
 
-The portfolio is intentionally structured as a living archive: not only what was produced, but how product judgment changed across industry, teaching, research, and current building work.
+- [AI Assignment Grading Assistant](https://github.com/valarie-yang/assignment-ai-grading-system) — assignment requirements become a teacher-reviewed rubric, then criterion-linked AI preliminary scoring. When enabled, submission text, assignment name, and rubric go through a local bridge to the configured model provider. The public page shows a workbench UI; accuracy and time savings are not validated.
+- [Muzhi Livestock Teaching Assistant](https://github.com/valarie-yang/livestock-teaching-assistant) — an image-to-question authoring prototype with teacher review and a browser-local question bank. The selected image and prompt/context go to the configured DeepSeek API; the student practice page is separate and not connected to that bank.
 
-## Recommended reviewer path
+The problem statements are product hypotheses, not conclusions from user interviews. The portfolio prototypes do not claim classroom adoption or learning outcomes. The site includes English workflow diagrams, not open access to the full product demos.
 
-1. Start with the role-specific flagship below: RWA for FinTech/Data roles, DEX for trading roles, or Assignment Grading for Applied AI roles.
-2. Review role scope and implementation boundaries before reading detailed artifacts.
-3. Look for product judgment in lifecycle states, exception handling, metrics, evaluation, and data models.
-4. Use the academic and teaching sections as context for systems thinking, not as a competing storyline.
+## Selected Web3 / FinTech / Data cases
 
-## Flagship public product cases
-
-### Web3 / FinTech
-
-- [RWA Investor Data & Reconciliation](https://github.com/valarie-yang/rwa-reconciliation-product-case) — synthetic financial-data, reconciliation, lineage, and grounded AI explanation.
+- [RWA Investor Data & Reconciliation](https://github.com/valarie-yang/rwa-reconciliation-product-case) — synthetic financial data, reconciliation, lineage, and grounded AI explanations.
 - [DEX Trading Product System Design](https://github.com/valarie-yang/dex-trading-product-system-design) — quote lifecycle, execution states, user-risk controls, and read-only AI decision support.
 - [Bitcoin-native Asset Analytics](https://github.com/valarie-yang/bitcoin-native-asset-analytics) — protocol-event normalization, asset/address analytics, and reviewable risk labels.
 
-### Applied AI
+## Contact
 
-- [Human-in-the-Loop AI Assignment Grading](https://github.com/valarie-yang/assignment-ai-grading-system) — structured AI assessment, teacher review, controlled release, and evaluation gates.
-- [AI-Assisted Influencer Content Operations](https://github.com/valarie-yang/Influencer-Platform-2.0) — deterministic structured workflow from persona to publishing board.
-- [AI-Assisted Livestock Teaching Assistant](https://github.com/valarie-yang/livestock-teaching-assistant) — domain-learning workflow, teacher review, and safe remediation.
-
-All public materials are public-safe reconstructions or synthetic cases where stated. They are explicit about implementation status, data provenance, human approval, and non-production boundaries.
+For product opportunities and collaboration: [LinkedIn](https://www.linkedin.com/in/valarie-yang-08573b122/) · [Email](mailto:valarieyoung2121@gmail.com)
 
 ## Repository contents
 
-- `index.html` — the portfolio website as a standalone static page
-- `README.md` — this repo overview and reviewer guide
-- [`docs/project-status-matrix.md`](docs/project-status-matrix.md) — public status, hiring signal, and non-claims for each case
-- `THIRD-PARTY-NOTICES.md` — external links, bundled-material, and future asset boundary
+- `index.html` — the standalone portfolio website
+- `assets/ai-assignment-grading-flow.svg` and `assets/ai-assignment-grading-flow-mobile.svg` — rubric-first teacher review workflow
+- `assets/muzhi-image-to-question-flow.svg` and `assets/muzhi-image-to-question-flow-mobile.svg` — image-to-question workflow and deployment boundary
+- `assets/ai-product-lifecycle.svg` and `assets/ai-product-lifecycle-mobile.svg` — product hypothesis-to-feedback loop
+- [`docs/project-status-matrix.md`](docs/project-status-matrix.md) — status, hiring signal, and non-claims across public cases
+- `THIRD-PARTY-NOTICES.md` — external links and publication boundary
 
-## Boundary
+## Evidence boundary
 
-This portfolio is a public-safe reconstruction and presentation layer. It does not contain confidential company data, private student data, regulated investment advice, production custody/security claims, or proprietary implementation details.
+The website is a presentation layer and public-safe portfolio. It contains no confidential company data, private student or animal records, API credentials, production custody/security claims, or full private product source. Prototype access must not be confused with validated product outcomes.
